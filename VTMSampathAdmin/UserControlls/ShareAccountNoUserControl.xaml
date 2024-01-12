@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="VTMSampathAdmin.UserControlls.ShareAccountNoUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VTMSampathAdmin.UserControlls"
+             mc:Ignorable="d" 
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/sampathlogo1.png" Stretch="Uniform"/>
+        </Grid.Background>
+
+        <!--topic-->
+        <Label Grid.Row="0" Content="Share Account Number" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+        <!--subtopic-->
+        <Label Content="Please enter the account number to share with the customer" FontSize="15" HorizontalAlignment="Center" FontWeight="DemiBold" Grid.Row="1"/>
+
+        <!--body-->
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+            <Label Content="Account Number" FontSize="15" HorizontalAlignment="Left" FontWeight="Bold"/>
+            <Border BorderBrush="Black" BorderThickness="1" Height="40"  CornerRadius="10" Margin="5,0">
+                <TextBox x:Name="TbAccNumber" Text="acc number"  FontSize="23" FontWeight="Bold" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" Margin="10,0" VerticalAlignment="Center"/>
+            </Border>
+            <Border CornerRadius="30" Margin="0,20" Background="#F78020" Height="50" Width="300" HorizontalAlignment="Center">
+                <Button x:Name="BtnShare" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnShare_Click">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/Images/shareicon.png" Width="20"/>
+                            <TextBlock Text="Share" Foreground="White" FontSize="15" FontWeight="DemiBold" Margin="10"/>
+                        </StackPanel>
+                    </Grid>
+                </Button>
+            </Border>
+
+            <Border CornerRadius="30" Margin="0,20" Background="#F78020" Height="50" Width="300" HorizontalAlignment="Center">
+                <Button x:Name="BtnRateUs" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnRateUs_Click">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/Images/thumbsup.png" Width="20"/>
+                            <TextBlock Text="Rate Us" Foreground="White" FontSize="15" FontWeight="DemiBold" Margin="10"/>
+                        </StackPanel>
+                    </Grid>
+                </Button>
+            </Border>
+
+        </StackPanel>
+        
+        
+    </Grid>
+</UserControl>

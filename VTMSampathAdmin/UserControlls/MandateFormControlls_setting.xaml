@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="VTMSampathAdmin.UserControlls.MandateFormControlls_setting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VTMSampathAdmin.UserControlls"
+             mc:Ignorable="d" xmlns:fa="http://schemas.fontawesome.io/icons/"
+             d:DesignHeight="450" d:DesignWidth="300" Background="Transparent">
+    <Grid Background="Transparent">
+        <Border CornerRadius="20"  Margin="10"
+                            x:Name="BorderToggleButton" Background="#FEF8F2">
+
+
+            <StackPanel Margin="10,0">
+                <!--sub topic-->
+                <Label Content="Settings" FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Foreground="#757575" Margin="0,0,0,10"/>
+
+
+                <!--sub body-->
+                <!--doc name-->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <Label Content="Document Name" HorizontalAlignment="Left" FontSize="15"/>
+                    <Label Content="*" HorizontalAlignment="Left" FontSize="15" Foreground="#fe515a"/>
+                </StackPanel>
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" Height="40" Background="White" CornerRadius="10" Margin="5,0,5,10">
+                    <Label x:Name="LblDocName" Content="Auto fill" Foreground="#FF505A" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderThickness="0" Margin="10,0" VerticalAlignment="Center"/>
+                </Border>
+
+                <!--place holder-->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <Label Content="Place Holder" HorizontalAlignment="Left" FontSize="15"/>
+                    <Label Content="*" HorizontalAlignment="Left" FontSize="15" Foreground="#fe515a"/>
+                </StackPanel>
+                <Border CornerRadius="10" Margin="5,0" Background="#3498DB" Height="60" >
+                    <Button x:Name="BtnPlaceHolder" Style="{StaticResource NoMouseOverStyleButton1}" >
+                        <Grid>
+                            <StackPanel Orientation="Horizontal" Width="200">
+                                <TextBlock Text="Signature" Foreground="White" FontSize="15" FontWeight="DemiBold" Margin="10"/>
+                                <Image Source="/Images/placeholder.png" Width="18" Margin="90,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+                </Border>
+
+                <!--button panel-->
+                <Border CornerRadius="20" Background="#F78020" Height="40"  Margin="0,70,0,0">
+                    <Grid>
+                        <Button x:Name="BtnShare"  Foreground="White"  FontSize="15" FontWeight="DemiBold" Content="Share" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnShare_Click"/>
+                    </Grid>
+                </Border>
+
+                <Border CornerRadius="20" Background="White" Height="40"  Margin="0,15,0,0" BorderThickness="2" BorderBrush="#F78020">
+                    <Grid>
+                        <Button x:Name="BtnCancel"  Foreground="#F78020"  FontSize="15" FontWeight="DemiBold" Content="Cancel" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnCancel_Click"/>
+                    </Grid>
+                </Border>
+
+            </StackPanel>
+
+
+
+
+        </Border>
+
+    </Grid>
+</UserControl>

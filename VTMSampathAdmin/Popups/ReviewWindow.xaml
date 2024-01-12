@@ -1,0 +1,161 @@
+﻿<Window x:Class="VTMSampathAdmin.Popups.ReviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VTMSampathAdmin.Popups"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="ReviewWindow" Height="450" Width="650" Topmost="True"
+        xmlns:fa="http://schemas.fontawesome.io/icons/">
+
+    <Grid Background="#f2f3f2">
+        <Border CornerRadius="50" Background="White" Height="40" Width="40" Margin="10" 
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                BorderThickness="2" BorderBrush="Gray">
+            <Grid >
+                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                Icon="Close" Width="20" 
+                                Foreground="Black" Cursor="Hand"
+                                x:Name="ImgClose" MouseLeftButtonDown="ImgClose_MouseLeftButtonDown"  Margin="8,0,8,8"/>
+            </Grid>
+        </Border>
+
+        <StackPanel Margin="20" HorizontalAlignment="Center">
+            <!--topic-->
+            <Label Content="End Video Call" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#fe515a" Margin="0,10"/>
+            <!--subtopic-->
+            <TextBlock Text="Could you please select the tasks you've completed for this account opening process?" HorizontalAlignment="Center" FontSize="15" TextWrapping="Wrap" TextAlignment="Center" FontWeight="DemiBold" Margin="30,0"/>
+            <!--check boxes-->
+ 
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <!--column1-->
+                <StackPanel Orientation="Vertical">
+
+                    <!--button1-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10">
+                        <Border Width="30" Height="30" CornerRadius="5" BorderThickness="3" BorderBrush="#F78020">
+                            <Button x:Name="BtnAccOpen" Style="{StaticResource NoMouseOverStyleButton1}"
+                                    Click="BtnAccOpen_Click">
+                                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                Icon="None" Width="20" 
+                                                Foreground="#F78020"
+                                                x:Name="Img_BtnAccOpen"/>
+
+                            </Button>
+                        </Border>
+                        <Label Content="Account Opening" FontSize="17" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                    </StackPanel>
+
+
+                    <!--button2-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0,10">
+                        <Border Width="30" Height="30" CornerRadius="5" BorderThickness="3" BorderBrush="#F78020">
+                            <Button x:Name="BtnSmsService" Style="{StaticResource NoMouseOverStyleButton1}"
+                                    Click="BtnSmsService_Click">
+                                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                Icon="None" Width="20" 
+                                                Foreground="#F78020"
+                                                x:Name="Img_BtnSmsService"/>
+
+                            </Button>
+                        </Border>
+                        <Label Content="SMS alert service activating" FontSize="17" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                    </StackPanel>
+
+                    <!--button3-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0,10">
+                        <Border Width="30" Height="30" CornerRadius="5" BorderThickness="3" BorderBrush="#F78020">
+                            <Button x:Name="BtnEmailChange" Style="{StaticResource NoMouseOverStyleButton1}"
+                                    Click="BtnEmailChange_Click">
+                                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                Icon="None" Width="20" 
+                                                Foreground="#F78020"
+                                                x:Name="Img_BtnEmailChange"/>
+
+                            </Button>
+                        </Border>
+                        <Label Content="Email address change " FontSize="17" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                    </StackPanel>
+
+                </StackPanel>
+                
+                <!--column2-->
+                <StackPanel Orientation="Vertical" Margin="10,0">
+
+                    <!--button4-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10">
+                        <Border Width="30" Height="30" CornerRadius="5" BorderThickness="3" BorderBrush="#F78020">
+                            <Button x:Name="BtnDebitCardIssue" Style="{StaticResource NoMouseOverStyleButton1}"
+                                    Click="BtnDebitCardIssue_Click">
+                                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                Icon="None" Width="20" 
+                                                Foreground="#F78020"
+                                                x:Name="Img_BtnDebitCardIssue"/>
+
+                            </Button>
+                        </Border>
+                        <Label Content="Debit card issuing" FontSize="17" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                    </StackPanel>
+
+
+                    <!--button5-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0,10">
+                        <Border Width="30" Height="30" CornerRadius="5" BorderThickness="3" BorderBrush="#F78020">
+                            <Button x:Name="BtnNumberChange" Style="{StaticResource NoMouseOverStyleButton1}"
+                                    Click="BtnNumberChange_Click">
+                                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                Icon="None" Width="20" 
+                                                Foreground="#F78020"
+                                                x:Name="Img_BtnNumberChange"/>
+
+                            </Button>
+                        </Border>
+                        <Label Content="Contact number change" FontSize="17" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                    </StackPanel>
+
+                    <!--button3-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0,10">
+                        <Border Width="30" Height="30" CornerRadius="5" BorderThickness="3" BorderBrush="#F78020">
+                            <Button x:Name="BtnAddressChange" Style="{StaticResource NoMouseOverStyleButton1}"
+                                    Click="BtnAddressChange_Click">
+                                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                Icon="None" Width="20" 
+                                                Foreground="#F78020"
+                                                x:Name="Img_BtnAddressChange"/>
+
+                            </Button>
+                        </Border>
+                        <Label Content="Residential address change" FontSize="17" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </StackPanel>
+            
+            <!--button panel-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                <Border CornerRadius="20" Background="White" Height="40" Width="200" Margin="0,0,10,0" BorderThickness="2" BorderBrush="#fe515a">
+                    <Grid>
+                        <Button x:Name="BtnNo" Click="BtnNo_Click"
+                                Foreground="#fe515a"  FontSize="15" FontWeight="DemiBold" Content="No, Stay on Call" Style="{StaticResource NoMouseOverStyleButton1}"/>
+                    </Grid>
+                </Border>
+                <Border CornerRadius="20" Background="#fe515a" Height="40" Width="200" Margin="10,0,0,0">
+                    <Grid>
+                        <Button x:Name="BtnYes" Click="BtnYes_Click"
+                                Foreground="white"  FontSize="15" FontWeight="DemiBold" Content="Yes, End Now" Style="{StaticResource NoMouseOverStyleButton1}"/>
+                    </Grid>
+                </Border>
+
+            </StackPanel>
+            
+            
+        </StackPanel>
+        
+        
+        
+        
+        
+
+    </Grid>
+</Window>

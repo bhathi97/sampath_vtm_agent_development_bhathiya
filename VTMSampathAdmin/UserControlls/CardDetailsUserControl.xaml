@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="VTMSampathAdmin.UserControlls.CardDetailsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VTMSampathAdmin.UserControlls"
+             mc:Ignorable="d" 
+             Height="150" Width="300" Background="Transparent" Margin="10" Style="{DynamicResource UserControlStyle1}">
+    <Border CornerRadius="10" Background="White" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <!--topic-->
+            <Border CornerRadius="10,10,0,0" Background="red" x:Name="BoderTopic" Grid.Row="0">
+                <Label Content="Critical" VerticalAlignment="Center" Foreground="White" FontWeight="DemiBold" Margin="10,0" x:Name="LblCountStatus"/>
+            </Border>
+            <!--body-->
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="8"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <!--branch & count-->
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!--branch-->
+                    <Label Content="kaduwela" VerticalAlignment="Center" Foreground="Black" FontWeight="DemiBold" Margin="10,0" FontSize="15" x:Name="LblBranchName"/>
+                    <!--count-->
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center">
+                        <Label Content="Card Count :" Foreground="#757575" FontSize="15"/>
+                        <Label Content="20" Foreground="Black" FontWeight="DemiBold" Margin="-8,0,0,0" FontSize="15" x:Name="LblCardCount"/>
+                    </StackPanel>
+                    
+                </Grid>
+                <!--progress bar-->
+                <Border CornerRadius="5" Background="#E4E4E4" Grid.Row="1" Width="250">
+                    <Grid HorizontalAlignment="Left">
+                        <Border CornerRadius="5" Background="red" Width="20" x:Name="BorderProgressBar">
+                        </Border>
+                    </Grid>
+                </Border>
+                
+                <!--card center-->
+                <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0">
+                    <Label Content="Card Center" Foreground="#757575"  FontSize="15"/>
+                    <Label Content="011-544 96 58" Foreground="Black" FontWeight="DemiBold" FontSize="15" x:Name="LblCardCenter"/>
+                </StackPanel>
+            </Grid>
+         
+        </Grid>
+    </Border>
+</UserControl>

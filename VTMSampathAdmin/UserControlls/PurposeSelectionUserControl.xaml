@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="VTMSampathAdmin.UserControlls.PurposeSelectionUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" xmlns:fa="http://schemas.fontawesome.io/icons/"
+             d:DesignHeight="450" d:DesignWidth="800" Background="White" Loaded="UserControl_Loaded">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/sampathlogo1.png" Stretch="Uniform"/>
+        </Grid.Background>
+
+        <Label Grid.Row="0" Content="Purpose" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <Label Content="Please select the purpose of this call from the options below" FontSize="15" HorizontalAlignment="Center" FontWeight="DemiBold" Grid.Row="1"/>
+
+        <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border CornerRadius="20" Background="White" Grid.Column="0" 
+                    Height="200" Width="200" Margin="0,0,10,0" 
+                    BorderThickness="2" BorderBrush="#F78020">
+                <Grid>
+                    <fa:ImageAwesome Icon="None" x:Name="BtnAccountOpenIcon" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#F78020" Margin="10"/>
+                    <Button x:Name="BtnAccountOpen" Foreground="#F78020" FontSize="25" FontWeight="DemiBold" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnAccountOpen_Click">
+                        <TextBlock Text="Account Opening" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </Grid>
+            </Border>
+            <Border CornerRadius="20" Background="White" Grid.Column="1" 
+                    Height="200" Width="200" Margin="0,0,10,0" 
+                    BorderThickness="2" BorderBrush="#F78020">
+                <Grid>
+                    <fa:ImageAwesome Icon="None" x:Name="BtnOtherServicesIcon" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#F78020" Margin="10"/>
+                    <Button x:Name="BtnOtherServices" Foreground="#F78020" FontSize="25" FontWeight="DemiBold" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnOtherServices_Click">
+                        <TextBlock Text="Other Service" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </Grid>
+            </Border>
+            <Border CornerRadius="20" Background="White" Grid.Column="2" 
+                    Height="200" Width="200" Margin="0" 
+                    BorderThickness="2" BorderBrush="#F78020" x:Name="GrdDebitCard">
+                <Grid >
+                    <fa:ImageAwesome Icon="None" x:Name="BtnDebitCardIcon" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#F78020" Margin="10"/>
+                    <Button x:Name="BtnDebitCard" Foreground="#F78020" FontSize="25" FontWeight="DemiBold" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnDebitCard_Click">
+                        <TextBlock Text="Debit Card" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Border CornerRadius="30" Background="#F78020" Height="50" Width="300"  Grid.Row="3">
+            <Grid>
+                <Button x:Name="BtnNext"  Foreground="White"  FontSize="15" FontWeight="DemiBold" Content="Continue" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnNext_Click"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

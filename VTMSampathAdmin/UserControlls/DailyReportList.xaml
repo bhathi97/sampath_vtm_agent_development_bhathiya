@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="VTMSampathAdmin.UserControlls.DailyReportList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VTMSampathAdmin.UserControlls"
+             mc:Ignorable="d" xmlns:fa="http://schemas.fontawesome.io/icons/"
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid  Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--topic-->
+        <Grid Grid.Row="0" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Daily Report" FontSize="25" FontWeight="Bold" Grid.Column="0" Margin="15,0,0,0"/>
+
+            <!--agent selection-->
+            <Border BorderBrush="#F4F3F3" BorderThickness="1" Height="35" CornerRadius="5" Grid.Column="1" Margin="10,0,0,0" Background="#F4F3F3">
+                <Grid>
+                    <ComboBox Name="CBApplicatounList" Height="30" SelectedIndex="0"
+                              Style="{DynamicResource ComboBoxStyle3}" Margin="5"/>
+
+                </Grid>
+            </Border>
+
+
+            <!--date picker-->
+
+            <!--download button-->
+            <Border CornerRadius="10" Background="#F78020" Height="40"  Grid.Column="3" Margin="0,0,33,0" Width="160" MaxWidth="200" HorizontalAlignment="Right">
+                <Grid>
+                    <Button x:Name="BtnDownload"  Foreground="White"  FontSize="15" FontWeight="DemiBold" Content="Download Report" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnDownload_Click"/>
+                </Grid>
+            </Border>
+
+
+
+
+        </Grid>
+
+        <!--table-->
+        <Grid Grid.Row="1">
+
+            <FlowDocumentReader x:Name="TblDataTable">
+                <FlowDocument >
+                    <Table>
+                        <Table.Columns>
+                            <TableColumn Width="100*"/>
+                            <TableColumn Width="100"/>
+
+                        </Table.Columns>
+                        <TableRowGroup>
+                            <!-- Header Row Style -->
+                            <TableRow>
+                                <TableRow.Style>
+                                    <Style TargetType="TableRow">
+                                        <Setter Property="Background" Value="#333232"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="FontWeight" Value="DemiBold"/>
+                                        <Setter Property="FontFamily" Value="Segoe UI"/>
+                                    </Style>
+                                </TableRow.Style>
+
+                                <TableCell LineHeight="30" TextAlignment="Center">
+                                    <Paragraph Margin="10" >Activities</Paragraph>
+                                </TableCell>
+
+                                <TableCell LineHeight="30" TextAlignment="Center">
+                                    <Paragraph Margin="10">Count</Paragraph>
+                                </TableCell>
+
+
+
+                            </TableRow>
+
+                            <!-- The following rows will be populated with JSON data dynamically -->
+
+                        </TableRowGroup>
+                    </Table>
+                </FlowDocument>
+            </FlowDocumentReader>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

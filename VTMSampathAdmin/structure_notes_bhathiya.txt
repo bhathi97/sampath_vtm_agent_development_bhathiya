@@ -1,0 +1,17 @@
+﻿
+user controls handle 
+# to callViewBaseUserControl.GrdCallInputsContainer add childresn using a dictionary
+dictionary values 
+-> UserControlsHandlerClass.AddUserControl("1", nICVerificationUserControl);
+-> UserControlsHandlerClass.AddUserControl("2", customerStatusUserControl);
+-> UserControlsHandlerClass.AddUserControl("3", purposeSelectionUserControl);
+-> UserControlsHandlerClass.AddUserControl("4", sessionInputsUserControl);
+-> UserControlsHandlerClass.AddUserControl("41", dRPChaeckUserControl);
+-> UserControlsHandlerClass.AddUserControl("42", verifyMobileUserControl);
+-> UserControlsHandlerClass.AddUserControl("421", verifyMobileOTPUserControl);
+-> UserControlsHandlerClass.AddUserControl("43", captureCustomerImageUserControl);
+-> UserControlsHandlerClass.AddUserControl("44", captureAddressProofUserControl);
+-> UserControlsHandlerClass.AddUserControl("45", captureAdditionalDocsUserControl);
+-> UserControlsHandlerClass.AddUserControl("46", issueDebitCardUserControl);
+-> UserControlsHandlerClass.AddUserControl("461", captureDebitCardUserControl);
+-> UserControlsHandlerClass.AddUserControl("47", captureSignatureUserControl);

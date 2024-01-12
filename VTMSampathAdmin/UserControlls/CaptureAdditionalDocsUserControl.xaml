@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="VTMSampathAdmin.UserControlls.CaptureAdditionalDocsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VTMSampathAdmin.UserControlls"
+             mc:Ignorable="d" xmlns:fa="http://schemas.fontawesome.io/icons/"
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/sampathlogo1.png" Stretch="Uniform"/>
+        </Grid.Background>
+
+        <!--topic-->
+        <Label Grid.Row="0" Content="Capture Additional Document" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+
+        <!--body-->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" CornerRadius="20" Background="Transparent"
+                        BorderThickness="1" BorderBrush="#F78020"
+                        Margin="10">
+                <Image x:Name="ImgDocumentsImage" Source="/Images/Imageplaceholderpng.png" 
+                       Stretch="Uniform"/>
+            </Border>
+
+            <Border Grid.Row="1" CornerRadius="20" Height="40" Width="200" BorderThickness="2" BorderBrush="#F78020" Background="White">
+                <Grid>
+                    <Button x:Name="BtnCapture" Foreground="#F78020"  
+                            FontSize="15" FontWeight="DemiBold" 
+                            Content="Capture" Style="{StaticResource NoMouseOverStyleButton1}" 
+                            Click="BtnCapture_Click"/>
+                </Grid>
+            </Border>
+
+        </Grid>
+
+
+        <!--button panel-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="60*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border CornerRadius="30" Background="White" Grid.Column="0" HorizontalAlignment="Right" Margin="20,0"
+                    Height="50" Width="150"
+                    BorderThickness="2" BorderBrush="#F78020">
+                <Grid>
+                    <Button x:Name="BtnBack"
+                            Foreground="#F78020" FontSize="25" 
+                            FontWeight="DemiBold" Style="{StaticResource NoMouseOverStyleButton1}" 
+                            Click="BtnBack_Click">
+
+                        <fa:ImageAwesome Icon="ArrowLeft"  Width="50" Foreground="#F78020" Margin="10"/>
+                    </Button>
+                </Grid>
+
+            </Border>
+
+            <Border CornerRadius="30" Background="#F78020" Height="50" Width="300"  Grid.Column="1" HorizontalAlignment="Left">
+                <Grid>
+                    <Button x:Name="BtnSave"  Foreground="White"  FontSize="15" FontWeight="DemiBold" 
+                            Content="Save" Style="{StaticResource NoMouseOverStyleButton1}" 
+                            Click="BtnSave_Click"/>
+                </Grid>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

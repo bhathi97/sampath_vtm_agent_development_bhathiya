@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="VTMSampathAdmin.UserControlls.SuccessUserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VTMSampathAdmin.UserControlls"
+             mc:Ignorable="d" xmlns:fa="http://schemas.fontawesome.io/icons/"
+             d:DesignHeight="450" d:DesignWidth="800" Background="White"
+             Loaded="UserControl_Loaded">
+    
+    <Grid Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/sampathlogo1.png" Stretch="Uniform"/>
+        </Grid.Background>
+        
+        <!--icon-->
+        <Border CornerRadius="100" Background="#F78020" Height="80" Width="80"
+                BorderThickness="8" BorderBrush="#fce4d2" Grid.Row="0">
+            <Grid>
+                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Icon="Check" Width="25" 
+                            Foreground="White"/>
+            </Grid>
+        </Border>
+        <!--topic-->
+        <TextBlock Grid.Row="1" Text="Service Provision Successful!" x:Name="TxtMassege"
+               FontSize="35" Foreground="#F78020" Width="400" TextWrapping="Wrap" TextAlignment="Center"
+               FontWeight="Bold" HorizontalAlignment="Center"/>
+        <!--suptopic-->
+        <Label Content="The requested service has been successfully provided." FontSize="15" HorizontalAlignment="Center" FontWeight="DemiBold" Grid.Row="2"/>
+        <!--button-->
+        <Border CornerRadius="30" Margin="0,30,0,0" Grid.Row="3" Background="#F78020" Height="50" Width="300" HorizontalAlignment="Center">
+            <Button x:Name="BtnRateUs" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnRateUs_Click">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="/Images/thumbsup.png" Width="20"/>
+                        <TextBlock Text="Rate Us" Foreground="White" FontSize="15" FontWeight="DemiBold" Margin="10"/>
+                    </StackPanel>
+                </Grid>
+            </Button>
+        </Border>
+
+    </Grid>
+</UserControl>

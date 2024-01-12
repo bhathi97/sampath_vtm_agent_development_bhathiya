@@ -1,0 +1,104 @@
+﻿<Window x:Class="VTMSampathAdmin.Previews.MandateForm_signature" xmlns:Wpf="clr-namespace:Patagames.Pdf.Net.Controls.Wpf;assembly=Patagames.Pdf.Wpf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VTMSampathAdmin.Previews" xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        Title="MandateForm_signature" Height="600" Width="900" Topmost="True">
+    <Grid>
+        <Border CornerRadius="50" Background="White" Height="40" Width="40" Margin="10" 
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                BorderThickness="2" BorderBrush="Gray">
+            <Grid >
+                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                Icon="Close" Width="20" 
+                                Foreground="Black" Cursor="Hand"
+                                x:Name="ImgClose" MouseLeftButtonDown="ImgClose_MouseLeftButtonDown"  Margin="8,0,8,8"/>
+            </Grid>
+        </Border>
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="540"/>
+                </Grid.RowDefinitions>
+                <!--topic-->
+                <Label Content="Mandate Form Preview" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+
+                <!--body-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="300"/>
+
+                    </Grid.ColumnDefinitions>
+                    <!--form preview-->
+                    <Grid Grid.Column="0" Margin="5">
+                        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+                            <Wpf:PdfViewer x:Name="PVMandateForm" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        </ScrollViewer>
+                    </Grid>
+
+
+
+
+                    <!--setting panel-->
+                    <Border CornerRadius="20" Grid.Column="1" Margin="10"
+                            x:Name="BorderToggleButton" Background="#FEF8F2">
+
+
+                        <StackPanel Margin="10,0">
+                            <!--sub topic-->
+                            <Label Content="Capturing Signature" FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Foreground="#757575" Margin="0,0,0,10"/>
+
+
+                            <!--pen-->
+                            <Grid >
+                                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                            Icon="Pencil" Width="30" Foreground="Black"
+                                            Margin="20"/>
+                            </Grid>
+                            <!--sub topic-->
+                            <Label Content="Signing" HorizontalAlignment="Center" FontSize="15"/>
+
+                            <Border CornerRadius="20" Background="#F78020" Height="40" Width="150" Margin="0,15,0,0" BorderThickness="2" BorderBrush="#F78020">
+                                <Grid>
+                                    <Button x:Name="BtnRetry"  Foreground="white"  FontSize="15" FontWeight="DemiBold" Content="Retry" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnRetry_Click"/>
+                                </Grid>
+                            </Border>
+
+                            <!--place holder-->
+                            
+                            
+
+                            <!--button panel-->
+                            <Border CornerRadius="20" Background="#F78020" Height="40"  Margin="0,70,0,0">
+                                <Grid>
+                                    <Button x:Name="BtnSave"  Foreground="White"  FontSize="15" FontWeight="DemiBold" Content="Save &amp; Download" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnSave_Click"/>
+                                </Grid>
+                            </Border>
+
+                            <Border CornerRadius="20" Background="White" Height="40"  Margin="0,15,0,0" BorderThickness="2" BorderBrush="#F78020">
+                                <Grid>
+                                    <Button x:Name="BtnCancel"  Foreground="#F78020"  FontSize="15" FontWeight="DemiBold" Content="Cancel" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnCancel_Click"/>
+                                </Grid>
+                            </Border>
+
+                        </StackPanel>
+
+
+
+
+                    </Border>
+
+
+                </Grid>
+
+            </Grid>
+
+
+
+        </Grid>
+    </Grid>
+</Window>

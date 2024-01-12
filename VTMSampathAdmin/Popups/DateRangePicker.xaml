@@ -1,0 +1,89 @@
+﻿<Window x:Class="VTMSampathAdmin.Popups.DateRangePicker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VTMSampathAdmin.Popups"
+        mc:Ignorable="d" Loaded="Window_Loaded"
+        Title="DateRangePicker"  WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Height="520" Width="640" Topmost="True" Closing="Window_Closing"
+        xmlns:fa="http://schemas.fontawesome.io/icons/" Background="#f2f3f2">
+
+    <Grid Margin="20,10">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/sampathlogo1.png" Stretch="Uniform"/>
+        </Grid.Background>
+
+        <!--exit-->
+        <Border CornerRadius="50" Background="White" Height="40" Width="40" Margin="10" 
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                BorderThickness="2" BorderBrush="Gray">
+            <Grid >
+                <fa:ImageAwesome HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                Icon="Close" Width="20" 
+                                Foreground="Black" Cursor="Hand"
+                                x:Name="ImgClose" MouseLeftButtonDown="ImgClose_MouseLeftButtonDown" Margin="8,0,8,8"/>
+            </Grid>
+        </Border>
+
+        <!--picker-->
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+
+            <!--topic-->
+            <Label Content="Date Range Picker" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+
+            <!--body-->
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width=".5*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--left-->
+                <StackPanel Grid.Column="0">
+
+                    <Label Content="From :" FontSize="18" FontWeight="Bold" Foreground="#F78020"/>
+                    <Border CornerRadius="10" Background="White" BorderThickness="2" BorderBrush="#F78020" Margin="10,0,10,0">
+                        <Label  x:Name="LblFrom" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Height="35"
+                                    Content="{Binding SelectedDate, ElementName=CalanderFrom}" />
+                    </Border>
+                    <Calendar x:Name="CalanderFrom"  Style="{DynamicResource CalendarStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" Margin="0,-8,0,0"/>
+
+                    <!--calander | left-->
+
+
+
+
+                </StackPanel>
+
+
+
+                <!--right-->
+                <StackPanel Grid.Column="1">
+                    <Label Content="To:" FontSize="18" FontWeight="Bold" Foreground="#F78020"/>
+                    <Border CornerRadius="10" Background="White" BorderThickness="2" BorderBrush="#F78020" Margin="10,0,10,0">
+                        <Label  x:Name="LblTo" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Height="35"
+                                    Content="{Binding SelectedDate, ElementName=CalanderTo}" />
+                    </Border>
+
+                    <!--calander | left-->
+                    <Calendar x:Name="CalanderTo" Style="{DynamicResource CalendarStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" Margin="0,-8,0,0" />
+                </StackPanel>
+            </Grid>
+
+            <!--button panel-->
+            <Border CornerRadius="20" Background="#F78020" Height="40" Width="300" Grid.Row="2">
+                <Grid>
+                    <Button x:Name="BtnSelect"  Foreground="White" FontSize="15" FontWeight="DemiBold" Content="Select" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnSelect_Click"/>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Grid>
+</Window>
