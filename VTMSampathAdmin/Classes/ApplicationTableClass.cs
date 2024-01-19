@@ -8,12 +8,18 @@ namespace VTMSampathAdmin.Classes
 {
     public class ApplicationTableClass
     {
-        public string AccNo { get; set; }
-        public string NIC { get; set; }
-        public string MobileNo { get; set; }
-        public string DebitCard { get; set; }
-        public string Date { get; set; }
-        public string State { get; set; }
-        public string Action { get; set; }
+        public int StatusCode { get; set; }
+        public List<DataArray> Data { get; set; }
+
+        public class DataArray
+        {
+            public int Id { get; set; }
+            public string AccountNumber { get; set; }
+            public string NicNumber { get; set; }
+            public string MobileNumber { get; set; }
+            public bool DebitCardStatus { get; set; }
+            public string CreatedAt { get; set; }
+            public string ApplicationStatus { get; set; }
+        }
     }
 }

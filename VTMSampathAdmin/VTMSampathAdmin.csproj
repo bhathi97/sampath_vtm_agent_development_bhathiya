@@ -125,6 +125,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Actions.cs" />
+    <Compile Include="Classes\ApiResponse.cs" />
     <Compile Include="Classes\ApplicationTableClass.cs" />
     <Compile Include="Classes\CardDetailsClass.cs" />
     <Compile Include="Classes\ColorsClass.cs" />

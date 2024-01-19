@@ -66,5 +66,15 @@ namespace VTMSampathAdmin.UserControlls
                 });
             }
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            TbNicInput.Focus();
+        }
+
+        private void TbNicInput_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Actions.NumberValidation(sender, e);
+        }
     }
 }

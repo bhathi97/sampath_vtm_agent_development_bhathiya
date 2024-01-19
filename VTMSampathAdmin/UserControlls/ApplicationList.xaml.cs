@@ -20,9 +20,11 @@ namespace VTMSampathAdmin.UserControlls
             TbSearch.Focus();
 
             //testing
-            string jsonFilePath = @"C:\Users\payme\OneDrive\Desktop\data.json";
+            string url = Actions.IP + @"Application/view-all-applications";
 
-            Actions.LoadJsonDataAndUpdateTable(jsonFilePath, TblDataTable, this);
+            //Actions.LoadJsonDataAndUpdateTable(url, TblDataTable, this);
+
+            Actions.LoadAllAppliactionData(url, TblDataTable,this);
 
             //combo box values
             CBApplicatounList.Items.Add("All");

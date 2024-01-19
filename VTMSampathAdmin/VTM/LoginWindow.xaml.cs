@@ -24,6 +24,7 @@ namespace VTMSampathAdmin.VTM
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             TbEmail.Focus();
+            Actions.LoadSettings();
 
             TextBox temporaryTextBox = new TextBox
             {

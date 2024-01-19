@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:VTMSampathAdmin.UserControlls"
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+             d:DesignHeight="450" d:DesignWidth="800" Background="White" Loaded="UserControl_Loaded">
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -61,28 +61,28 @@
             <!--numbers | 6 numbers horizontally -->
             <StackPanel Orientation="Horizontal" Margin="0,20">
                 <!--1st number-->
-                <Border Background="#f2f3f2" BorderBrush="#f2f3f5" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3">
-                    <TextBox x:Name="Tbotp_1" FontSize="30" FontWeight="Bold" Foreground="Black" Text="1" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1"/>
+                <Border Background="#f2f3f2" BorderBrush="#f2f3f5" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3" Cursor="Pen">
+                    <TextBox x:Name="Tbotp_1" FontSize="30" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1" PreviewTextInput="Tbotp_1_PreviewTextInput" TextChanged="Tbotp_1_TextChanged"/>
                 </Border>
                 <!--2nd number-->
-                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3">
-                    <TextBox x:Name="Tbotp_2" FontSize="30" FontWeight="Bold" Foreground="Black" Text="2" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1"/>
+                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3" Cursor="Pen">
+                    <TextBox x:Name="Tbotp_2" FontSize="30" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1" PreviewTextInput="Tbotp_2_PreviewTextInput" TextChanged="Tbotp_2_TextChanged"/>
                 </Border>
                 <!--3rd number-->
-                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3">
-                    <TextBox x:Name="Tbotp_3" FontSize="30" FontWeight="Bold" Foreground="Black" Text="3" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1"/>
+                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3" Cursor="Pen">
+                    <TextBox x:Name="Tbotp_3" FontSize="30" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1" PreviewTextInput="Tbotp_3_PreviewTextInput" TextChanged="Tbotp_3_TextChanged"/>
                 </Border>
                 <!--4th number-->
-                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3">
-                    <TextBox x:Name="Tbotp_4" FontSize="30" FontWeight="Bold" Foreground="Black" Text="4" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1"/>
+                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3" Cursor="Pen" >
+                    <TextBox x:Name="Tbotp_4" FontSize="30" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1" PreviewTextInput="Tbotp_4_PreviewTextInput" TextChanged="Tbotp_4_TextChanged"/>
                 </Border>
                 <!--5th number-->
-                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3">
-                    <TextBox x:Name="Tbotp_5" FontSize="30" FontWeight="Bold" Foreground="Black" Text="5" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1"/>
+                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3" Cursor="Pen">
+                    <TextBox x:Name="Tbotp_5" FontSize="30" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1" PreviewTextInput="Tbotp_5_PreviewTextInput" TextChanged="Tbotp_5_TextChanged"/>
                 </Border>
                 <!--6th number-->
-                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3">
-                    <TextBox x:Name="Tbotp_6" FontSize="30" FontWeight="Bold" Foreground="Black" Text="6" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1"/>
+                <Border Background="#f2f3f2" BorderBrush="#f2f3f2" CornerRadius="10" Width="50" Height="50" BorderThickness="0" Margin="3" Cursor="Pen">
+                    <TextBox x:Name="Tbotp_6" FontSize="30" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="1" PreviewTextInput="Tbotp_6_PreviewTextInput" TextChanged="Tbotp_6_TextChanged"/>
                 </Border>
 
             </StackPanel>
