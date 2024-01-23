@@ -9,10 +9,14 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VTMSampathAdmin.Classes;
+using VTMSampathAdmin.Classes.BackendDataLoading;
+using VTMSampathAdmin.Popups;
+using VTMSampathAdmin.VTM;
 
 namespace VTMSampathAdmin.UserControlls
 {
@@ -24,9 +28,13 @@ namespace VTMSampathAdmin.UserControlls
         public ApplicationList_completed()
         {
             InitializeComponent();
-            string jsonFilePath = @"C:\Users\payme\OneDrive\Desktop\data.json";
+            string url = Actions.IP + @"Application/view-complete-applications";
 
-            Actions.LoadJsonDataAndUpdateTable(jsonFilePath, TblDataTable, this, "Complete");
+            //make to the date range
+            DateRangeClass dateRange = new DateRangeClass();
+
+            ApplicationData applicationData = new ApplicationData();
+            _ = applicationData.LoadCompletedApplicationData(url, TblDataTable, this, dateRange);
 
 
         }
@@ -41,6 +49,35 @@ namespace VTMSampathAdmin.UserControlls
         public static implicit operator ApplicationList_completed(ApplicationList v)
         {
             throw new NotImplementedException();
+        }
+
+        private void BtnDateRangeSelect_Click(object sender, RoutedEventArgs e)
+        {
+            DateRangePicker dateRangePicker = new DateRangePicker();
+            MainWindow mainWindow = Actions.FindAndLoadMainWindow();
+
+            //blure the window
+            mainWindow.Effect = (Effect)Application.Current.Resources["BlurEffect"];
+            dateRangePicker.ShowDialog();
+            mainWindow.Effect = null;
+
+            if (dateRangePicker.IsDateRangeSelect)
+            {
+                //clear existing table data
+                Actions.ClearTableData(TblDataTable);
+
+                //make to the date range
+                DateRangeClass dateRange = new DateRangeClass
+                {
+                    FromDate = dateRangePicker.FromDate,
+                    ToDate = dateRangePicker.ToDate
+                };
+
+                string url = Actions.IP + @"Application/view-complete-applications";
+
+                ApplicationData applicationData = new ApplicationData();
+                _ = applicationData.LoadCompletedApplicationData(url, TblDataTable, this, dateRange);
+            }
         }
     }
 }

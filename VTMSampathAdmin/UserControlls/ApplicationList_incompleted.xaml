@@ -49,6 +49,23 @@
            
 
             <!--DateRange-->
+            <Border BorderBrush="#F4F3F3" CornerRadius="5" Grid.Column="3" Margin="5" Background="#F4F3F3">
+
+                <Button Style="{StaticResource NoMouseOverStyleButton1}" x:Name="BtnDateRangeSelect" Click="BtnDateRangeSelect_Click" Cursor="Hand">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Image Source="/Images/search.png" Width="20" Grid.Column="0"/-->
+                        <fa:ImageAwesome Icon="Calendar" Margin="10" Grid.Column="0" Foreground="#F37C1E" />
+                        <TextBlock Text="Date Range"  Grid.Column="1" VerticalAlignment="Center" FontSize="15" FontWeight="DemiBold" Foreground="#757575"/>
+
+                    </Grid>
+                </Button>
+
+            </Border>
 
 
 
@@ -61,7 +78,6 @@
                 <FlowDocument >
                     <Table>
                         <Table.Columns>
-                            <TableColumn Width="15*"/>
                             <TableColumn Width="15*"/>
                             <TableColumn Width="15*"/>
                             <TableColumn Width="15*"/>
@@ -81,11 +97,7 @@
                                 </TableRow.Style>
 
                                 <TableCell LineHeight="30" TextAlignment="Center">
-                                    <Paragraph Margin="10" >Acc No:</Paragraph>
-                                </TableCell>
-
-                                <TableCell LineHeight="30" TextAlignment="Center">
-                                    <Paragraph Margin="10">NIC</Paragraph>
+                                    <Paragraph Margin="10" >NIC</Paragraph>
                                 </TableCell>
 
                                 <TableCell LineHeight="30" TextAlignment="Center">
@@ -93,11 +105,11 @@
                                 </TableCell>
 
                                 <TableCell LineHeight="30" TextAlignment="Center">
-                                    <Paragraph Margin="10">Debit Card</Paragraph>
+                                    <Paragraph Margin="10">Reason for Incompletion</Paragraph>
                                 </TableCell>
 
                                 <TableCell LineHeight="30" TextAlignment="Center">
-                                    <Paragraph Margin="10">Date</Paragraph>
+                                    <Paragraph Margin="10">Incomplete Date</Paragraph>
                                 </TableCell>
 
                                 <TableCell LineHeight="30" TextAlignment="Left">

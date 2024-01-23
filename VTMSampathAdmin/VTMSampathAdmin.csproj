@@ -126,9 +126,21 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Actions.cs" />
     <Compile Include="Classes\ApiResponse.cs" />
-    <Compile Include="Classes\ApplicationTableClass.cs" />
+    <Compile Include="Classes\ApplicationTables\ApplicationIncompletedTableClass.cs" />
+    <Compile Include="Classes\ApplicationTables\ApplicationRejectedTableClass.cs" />
+    <Compile Include="Classes\ApplicationTables\ApplicationTableClass.cs" />
+    <Compile Include="Classes\ApplicationTables\ApplicationCompletedTableClass.cs" />
+    <Compile Include="Classes\BackendDataLoading\ApplicationData.cs" />
+    <Compile Include="Classes\BackendDataLoading\ApplicationState.cs" />
+    <Compile Include="Classes\BackendDataLoading\DateRangeClass.cs" />
+    <Compile Include="Classes\BackendDataLoading\EntityForApplicationButtonHandle.cs" />
+    <Compile Include="Classes\BackendDataLoading\ApplicationDetailsPreviewClass.cs" />
+    <Compile Include="Classes\BackendDataLoading\CompleteApplicationDetailsClass.cs" />
+    <Compile Include="Classes\BackendDataLoading\RejectedApplicationDetailsClass.cs" />
+    <Compile Include="Classes\BackendDataLoading\IApplicationData.cs" />
     <Compile Include="Classes\CardDetailsClass.cs" />
     <Compile Include="Classes\ColorsClass.cs" />
+    <Compile Include="Classes\BackendDataLoading\IEntityForApplicationButtonHandle.cs" />
     <Compile Include="Classes\UserControlsHandlerClass.cs" />
     <Compile Include="Classes\Utils.cs" />
     <Compile Include="Popups\DateRangePicker.xaml.cs">
@@ -155,8 +167,8 @@
     <Compile Include="Popups\VideoCallEndWindow.xaml.cs">
       <DependentUpon>VideoCallEndWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Previews\CompletedApplication.xaml.cs">
-      <DependentUpon>CompletedApplication.xaml</DependentUpon>
+    <Compile Include="Previews\MoreApplicationDetails.xaml.cs">
+      <DependentUpon>MoreApplicationDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Previews\MandateForm_setting.xaml.cs">
       <DependentUpon>MandateForm_setting.xaml</DependentUpon>
@@ -305,7 +317,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Previews\CompletedApplication.xaml">
+    <Page Include="Previews\MoreApplicationDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -574,6 +586,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.0\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

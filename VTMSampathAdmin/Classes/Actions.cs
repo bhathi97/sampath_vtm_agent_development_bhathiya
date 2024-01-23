@@ -13,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Xml.Linq;
+using VTMSampathAdmin.Classes.BackendDataLoading;
 using VTMSampathAdmin.Previews;
 using VTMSampathAdmin.UserControlls;
 using VTMSampathAdmin.VTM;
@@ -176,108 +177,11 @@ namespace VTMSampathAdmin.Classes
             }*/
         }
 
-        public static async Task LoadAllAppliactionData(string endpoint, FlowDocumentReader tblDataTable, UserControl userControl)
-        {
-            using(HttpClient client = new HttpClient())
-            {
-
-                HttpContent content = new StringContent("");
-
-                HttpResponseMessage response = await client.PostAsync(endpoint, content);
-
-                try
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string jsonContent = await response.Content.ReadAsStringAsync();
 
 
-                        ApiResponse<ApplicationTableClass.DataArray> apiResponse = JsonConvert.DeserializeObject<ApiResponse<ApplicationTableClass.DataArray>>(jsonContent);
-                        List<ApplicationTableClass.DataArray> applicationList = apiResponse?.Data;
-
-
-                        var allRows = applicationList.Select(rowData =>
-                        {
-                            TableRow row = new TableRow();
-
-                            row.Cells.Add(CreateTableCell(rowData.AccountNumber));
-                            row.Cells.Add(CreateTableCell(rowData.NicNumber));
-                            row.Cells.Add(CreateTableCell(rowData.MobileNumber));
-                            row.Cells.Add(CreateTableCell(rowData.DebitCardStatus.ToString()));
-                            row.Cells.Add(CreateTableCell(rowData.CreatedAt.ToString()));
-
-                            //state handle
-                            TableCell stateColored = CreateTableCell(rowData.ApplicationStatus);
-
-                            if (rowData.ApplicationStatus == "Complete")
-                            {
-                                stateColored.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#33CC33"));
-                            }
-                            else if (rowData.ApplicationStatus == "Incomplete")
-                            {
-                                stateColored.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#757575"));
-                            }
-                            else
-                            {
-                                stateColored.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF505A"));
-                            }
-                            stateColored.FontWeight = FontWeights.DemiBold;
-                            row.Cells.Add(stateColored);
-
-                            // button create and add
-                            Button actionButton = new Button()
-                            {
-                                Content = "View",
-                                HorizontalContentAlignment = HorizontalAlignment.Center,
-                                VerticalContentAlignment = VerticalAlignment.Center,
-                                Width = 100,
-                                Height = 25
-                            };
-
-                            actionButton.Style = (Style)userControl.FindResource("NoMouseOverStyleButton2");
-                            actionButton.Click += (sender, e) => HandleButtonClick(rowData, rowData.ApplicationStatus);
-
-                            TableCell actionCell = new TableCell(new Paragraph(new InlineUIContainer(actionButton)));
-                            row.Cells.Add(actionCell);
-
-                            row.Style = (Style)userControl.FindResource("RowStyle1");
-
-                            foreach (TableCell cell in row.Cells)
-                            {
-                                cell.LineHeight = 35;
-                                cell.BorderBrush = Brushes.White;
-                                cell.BorderThickness = new Thickness(0, 0, 0, 2);
-                                cell.Padding = new Thickness(0, 10, 0, 0);
-                            }
-
-
-
-
-                            return row;
-                        }).ToList();
-
-                        var tableAll = (tblDataTable.Document as FlowDocument)?.Blocks.FirstBlock as Table;
-                        var rowGroupAll = tableAll.RowGroups[0];
-
-                        foreach (var allRow in allRows)
-                        {
-                            rowGroupAll.Rows.Add(allRow);
-                        }
-
-
-                    }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                
-
-            }
-        }
-
-        
-        private static TableCell CreateTableCell(string text)
+        #region APPLICATIONS TABLES ROW BY ROW HANDLING METHODS
+        //applications Table methods
+        public static TableCell CreateTableCell(string text)
         {
             return new TableCell(new Paragraph(new Run(text)))
             {
@@ -287,20 +191,56 @@ namespace VTMSampathAdmin.Classes
             };
         }
 
-        private static void HandleButtonClick(ApplicationTableClass.DataArray rowData, string state)
+        //all applications
+        public static void ApplicationsHandleButtonClick(EntityForApplicationButtonHandle entity) 
         {
 
-            if (state == "Complete")
-            {
-                CompletedApplication completedApplication = new CompletedApplication();
-                completedApplication.Show();
+            MoreApplicationDetails completedApplication = new MoreApplicationDetails(entity);
+            completedApplication.Show();
 
 
 
-            }
+
+
+
+            
 
 
         }
+
+        public static void ClearTableData(FlowDocumentReader flowDocument)
+        {
+            if (flowDocument != null && flowDocument.Document != null)
+            {
+                TableRowGroup rowGroup = ((Table)flowDocument.Document.Blocks.FirstBlock).RowGroups[0];
+                for (int i = rowGroup.Rows.Count - 1; i > 0; i--)
+                {
+                    rowGroup.Rows.RemoveAt(i);
+                }
+            }
+        }
+
+
+        /*  public static void TableRow_MouseEnter(object sender, MouseEventArgs e)
+          {
+              if (sender is TableRow row)
+              {
+                  row.Background = Brushes.Red;
+              }
+          }
+
+          public static void TableRow_MouseLeave(object sender, MouseEventArgs e)
+          {
+              if (sender is TableRow row)
+              {
+                  row.ClearValue(TableRow.BackgroundProperty);
+              }
+          }*/
+
+        #endregion
+
+
+
 
         //validations
         public static void NumberValidation(object sender, TextCompositionEventArgs e)
@@ -337,7 +277,7 @@ namespace VTMSampathAdmin.Classes
             }
         }
 
-        /*public static MainWindow FindAndLoadMainWindow()
+        public static MainWindow FindAndLoadMainWindow()
         {
             foreach (Window window in Application.Current.Windows)
             {
@@ -348,33 +288,9 @@ namespace VTMSampathAdmin.Classes
             }
 
             return null;
-        }*/
+        }
 
-        /* private static CustomContainerForMainWindow FindCustomContainerInVisualTree(DependencyObject parent)
-         {
-             if (parent == null) return null;
-
-             int childCount = VisualTreeHelper.GetChildrenCount(parent);
-
-             for (int i = 0; i < childCount; i++)
-             {
-                 DependencyObject child = VisualTreeHelper.GetChild(parent, i);
-
-                 if (child is CustomContainerForMainWindow customContainer)
-                 {
-                     return customContainer;
-                 }
-
-                 CustomContainerForMainWindow result = FindCustomContainerInVisualTree(child);
-
-                 if (result != null)
-                 {
-                     return result;
-                 }
-             }
-
-             return null;
-         }*/
+        
 
 
     }

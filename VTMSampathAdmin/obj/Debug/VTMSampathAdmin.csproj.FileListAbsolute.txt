@@ -157,8 +157,8 @@ D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\CardDetailsUs
 D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\Popups\OnlineOfflineUsersWindow.g.cs
 D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\Popups\OnlineOfflineUsersWindow.baml
 D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\CardDetailsUserControl.baml
-D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\Previews\CompletedApplication.g.cs
-D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\Previews\CompletedApplication.baml
 D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\MandateFormControlls_setting.g.cs
 D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\MandateFormControlls_setting.baml
+D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\Previews\MoreApplicationDetails.g.cs
+D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\Previews\MoreApplicationDetails.baml
 D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\VTMSampathAdmin.csproj.AssemblyReference.cache

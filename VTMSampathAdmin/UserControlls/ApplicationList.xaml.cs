@@ -5,7 +5,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using VTMSampathAdmin.Classes;
+using VTMSampathAdmin.Classes.BackendDataLoading;
+using VTMSampathAdmin.Popups;
+using VTMSampathAdmin.VTM;
 
 namespace VTMSampathAdmin.UserControlls
 {
@@ -19,12 +23,16 @@ namespace VTMSampathAdmin.UserControlls
             InitializeComponent();
             TbSearch.Focus();
 
-            //testing
             string url = Actions.IP + @"Application/view-all-applications";
 
-            //Actions.LoadJsonDataAndUpdateTable(url, TblDataTable, this);
+            //make to the date range
+            DateRangeClass dateRange = new DateRangeClass();
 
-            Actions.LoadAllAppliactionData(url, TblDataTable,this);
+
+            ApplicationData applicationData = new ApplicationData();
+            _ = applicationData.LoadAllAppliactionData(url, TblDataTable, this, dateRange);
+
+            //Actions.LoadAllAppliactionData(url, TblDataTable,this);
 
             //combo box values
             CBApplicatounList.Items.Add("All");
@@ -44,6 +52,45 @@ namespace VTMSampathAdmin.UserControlls
         }
 
         
+
+        private void BtnDateRangeSelect_Click(object sender, RoutedEventArgs e)
+        {
+            //
+            DateRangePicker dateRangePicker = new DateRangePicker();
+            MainWindow mainWindow = Actions.FindAndLoadMainWindow();
+
+            //blure the window
+            mainWindow.Effect = (Effect)Application.Current.Resources["BlurEffect"];
+            dateRangePicker.ShowDialog();
+            mainWindow.Effect = null;
+
+            if (dateRangePicker.IsDateRangeSelect)
+            {
+                //clear existing table data
+                Actions.ClearTableData(TblDataTable);
+
+
+                //make to the date range
+                DateRangeClass dateRange = new DateRangeClass
+                {
+                    FromDate = dateRangePicker.FromDate,
+                    ToDate = dateRangePicker.ToDate
+                };
+
+                string url = Actions.IP + @"Application/view-all-applications";
+                
+
+
+
+                ApplicationData applicationData = new ApplicationData();
+                _ = applicationData.LoadAllAppliactionData(url, TblDataTable, this, dateRange);
+            }
+
+
+
+
+
+        }
 
         
     }

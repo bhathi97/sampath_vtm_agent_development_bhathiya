@@ -80,7 +80,7 @@
             <!--button panel-->
             <Border CornerRadius="20" Background="#F78020" Height="40" Width="300" Grid.Row="2">
                 <Grid>
-                    <Button x:Name="BtnSelect"  Foreground="White" FontSize="15" FontWeight="DemiBold" Content="Select" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnSelect_Click"/>
+                    <Button x:Name="BtnSelect" Cursor="Hand" Foreground="White" FontSize="15" FontWeight="DemiBold" Content="Select" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnSelect_Click"/>
                 </Grid>
             </Border>
 
