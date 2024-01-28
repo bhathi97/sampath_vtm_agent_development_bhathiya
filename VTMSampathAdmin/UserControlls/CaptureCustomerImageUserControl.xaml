@@ -27,9 +27,9 @@
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0" CornerRadius="20" Background="Transparent"
-                        BorderThickness="1" BorderBrush="#F78020"
+                        BorderThickness="1" BorderBrush="#F78020" HorizontalAlignment="Center"
                         Margin="10">
-                <Image x:Name="ImgCustImage" Source="/Images/Imageplaceholderpng.png" 
+                <Image x:Name="ImgCustImage" Source="/Images/Imageplaceholderpng.png" Margin="10"
                        Stretch="Uniform"/>
             </Border>
             

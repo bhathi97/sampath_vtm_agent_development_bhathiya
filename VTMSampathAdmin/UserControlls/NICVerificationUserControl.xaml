@@ -54,10 +54,10 @@
                                 Click="BtnShowGuidance_Click"/>
                     </Grid>
                 </Border>
-                <Border Grid.Row="1" CornerRadius="20" Background="White" 
+                <Border Grid.Row="1" CornerRadius="20" Background="White" HorizontalAlignment="Center"
                         BorderThickness="2" BorderBrush="#F78020"
                         Margin="10">
-                    <Image x:Name="ImgNICFront" Source="/Images/Imageplaceholderpng.png" Stretch="Uniform"
+                    <Image x:Name="ImgNICFront" Source="/Images/Imageplaceholderpng.png" Stretch="Uniform" Margin="10"
                        />
                 </Border>
 
@@ -83,10 +83,10 @@
                     </Grid>
                 </Border>
 
-                <Border Grid.Row="1" CornerRadius="20" Background="White" 
+                <Border Grid.Row="1" CornerRadius="20" Background="White" HorizontalAlignment="Center"
                         BorderThickness="2" BorderBrush="#F78020"
                         Margin="10">
-                    <Image x:Name="ImgNICRear" Source="/Images/Imageplaceholderpng.png" Stretch="Uniform"/>
+                    <Image x:Name="ImgNICRear" Source="/Images/Imageplaceholderpng.png" Stretch="Uniform" Margin="10"/>
                 </Border>
                 
             </Grid>

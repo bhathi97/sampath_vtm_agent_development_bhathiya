@@ -81,15 +81,25 @@
                                 </Border>
 
                                 <!--button panel-->
+                                
+                                <!--save and share-->
                                 <Border CornerRadius="20" Background="#F78020" Height="40"  Margin="0,70,0,0">
                                     <Grid>
-                                        <Button x:Name="BtnSharesettingPanel"  Foreground="White"  FontSize="15" FontWeight="DemiBold" Content="Share" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnSharesettingPanel_Click"/>
+                                        <Button x:Name="BtnShareSetting"  Foreground="White"  FontSize="15" FontWeight="DemiBold" Content="Save &amp; Share" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnShareSetting_Click"/>
                                     </Grid>
                                 </Border>
 
+                                <!--discard changes-->
                                 <Border CornerRadius="20" Background="White" Height="40"  Margin="0,15,0,0" BorderThickness="2" BorderBrush="#F78020">
                                     <Grid>
-                                        <Button x:Name="BtnCancelsettingPanel"  Foreground="#F78020"  FontSize="15" FontWeight="DemiBold" Content="Cancel" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnCancelsettingPanel_Click"/>
+                                        <Button x:Name="BtnDiscardSetting"  Foreground="#F78020"  FontSize="15" FontWeight="DemiBold" Content="Discard Changes" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnDiscardSetting_Click"/>
+                                    </Grid>
+                                </Border>
+
+                                <!--cancel-->
+                                <Border CornerRadius="20" Background="White" Height="40"  Margin="0,15,0,0" BorderThickness="2" BorderBrush="#F78020">
+                                    <Grid>
+                                        <Button x:Name="BtnCancelSetting"  Foreground="#F78020"  FontSize="15" FontWeight="DemiBold" Content="Cancel" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnCancelSetting_Click"/>
                                     </Grid>
                                 </Border>
 
@@ -133,7 +143,7 @@
 
                                 <Border CornerRadius="20" Background="White" Height="40"  Margin="0,15,0,0" BorderThickness="2" BorderBrush="#F78020">
                                     <Grid>
-                                        <Button x:Name="BtnCancelSignaturePanel"  Foreground="#F78020"  FontSize="15" FontWeight="DemiBold" Content="Cancel" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnCancelSignaturePanel_Click"/>
+                                        <Button x:Name="BtnCancelSignature"  Foreground="#F78020"  FontSize="15" FontWeight="DemiBold" Content="Cancel" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnCancelSignature_Click"/>
                                     </Grid>
                                 </Border>
 

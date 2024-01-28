@@ -28,10 +28,10 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="0" CornerRadius="20" Background="Transparent"
+            <Border Grid.Row="0" CornerRadius="20" Background="Transparent" HorizontalAlignment="Center"
                         BorderThickness="1" BorderBrush="#F78020"
                         Margin="10">
-                <Image x:Name="ImgCustImage" Source="/Images/Imageplaceholderpng.png" 
+                <Image x:Name="ImgCustImage" Source="/Images/Imageplaceholderpng.png" Margin="20"
                        Stretch="Uniform"/>
             </Border>
 

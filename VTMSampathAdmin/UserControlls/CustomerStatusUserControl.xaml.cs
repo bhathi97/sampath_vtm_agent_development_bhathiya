@@ -53,20 +53,7 @@ namespace VTMSampathAdmin.UserControlls
         {
             if(BtnNewCustomerIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle || BtnExistingCustomerIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle)
             {
-                PurposeSelectionUserControl purposeSelectionUserControl = new PurposeSelectionUserControl();
-                UserControlsHandlerClass.AddUserControl("3", purposeSelectionUserControl);
-
-                MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-                CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-                if (callViewBaseUserControl != null)
-                {
-                    callViewBaseUserControl.Dispatcher.Invoke(() =>
-                    {
-                        callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                        callViewBaseUserControl.GrdCallInputsContainer.Children.Add(purposeSelectionUserControl);
-                    });
-                }
+                Actions.GoToNewUserController<PurposeSelectionUserControl>("3");
             }
             else
             {

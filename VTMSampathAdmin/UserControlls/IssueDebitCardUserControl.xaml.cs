@@ -29,18 +29,21 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            SessionInputsUserControl sessionInputsUserControl = (SessionInputsUserControl)UserControlsHandlerClass.GetUserControl("4");
 
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
+            try
             {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
+                if (Actions.Purpose == PurposeEnum.newApplication) 
                 {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(sessionInputsUserControl);
-                });
+                    Actions.BackToPreviousUserController<SessionInputsUserControl>("4");
+                }
+                else if (Actions.Purpose == PurposeEnum.debitCard)
+                {
+                    Actions.BackToPreviousUserController<SessionInputsUserControl_debitcard>("4");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK);
             }
         }
 
@@ -51,20 +54,7 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnCardIssue_Click(object sender, RoutedEventArgs e)
         {
-            CaptureDebitCardUserControl captureDebitCardUserControl = new CaptureDebitCardUserControl();
-            UserControlsHandlerClass.AddUserControl("461", captureDebitCardUserControl);
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(captureDebitCardUserControl);
-                });
-            }   
+            Actions.GoToNewUserController<VerifySignatureUserControl>("461");
         }
     }
 }

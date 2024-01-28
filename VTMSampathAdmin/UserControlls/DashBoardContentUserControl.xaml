@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:VTMSampathAdmin.UserControlls"
-             mc:Ignorable="d" Loaded="UserControl_Loaded"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
 
@@ -34,20 +34,91 @@
 
             </StackPanel>
 
-            <Border Grid.Column="1" CornerRadius="20" Margin="0,0" VerticalAlignment="Top"
-                    HorizontalAlignment="Right" 
-                    Height="40" Width="150"
-                    x:Name="BorderToggleButton" Background="DimGray">
-                <Grid >
-                    <ToggleButton Background="Transparent" BorderBrush="Transparent"
-                                  x:Name="BtnOnOff" Style="{StaticResource NoMouseOverStyle}"
-                                  Click="BtnOnOff_Click"
-                                  Cursor="Hand"
-                                  FontSize="20"
-                                  Foreground="White"
-                                  Content="TBtnOnOff"/>
-                </Grid>
-            </Border>
+
+            <StackPanel Margin="0,0" VerticalAlignment="Top" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+
+                <!--missed calls-->
+                <StackPanel Orientation="Horizontal" Margin="20,0">
+                    <Border CornerRadius="20" Height="40" Width="40" Background="#ffefee" >
+
+                        <Grid >
+                            <Image Source="/Images/incomingcall.png" Width="20" Grid.Column="0" Margin="5"/>
+                        </Grid>
+                    </Border>
+
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Label Content="Missed Calls" FontWeight="DemiBold" Foreground="#757575"/>
+                        <Label Content="03" FontSize="25" FontWeight="Bold" Foreground="#FF505A" Margin="0,-15,0,0" x:Name="LblMissedCall"/>
+                    </StackPanel>
+
+                </StackPanel>
+                
+                <!--rejected calls-->
+                <!--missed calls-->
+                <StackPanel Orientation="Horizontal" Margin="20,0">
+                    <Border CornerRadius="20" Height="40" Width="40" Background="#ffefee" >
+
+                        <Grid >
+                            <Image Source="/Images/rejectedcalls.png" Width="20" Grid.Column="0" Margin="5"/>
+                        </Grid>
+                    </Border>
+
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Label Content="Rejected Calls" FontWeight="DemiBold" Foreground="#757575"/>
+                        <Label Content="03" FontSize="25" FontWeight="Bold" Foreground="#FF505A" Margin="0,-15,0,0" x:Name="LblRejectedCalls"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <!--online off line button-->
+                <Border CornerRadius="25" Margin="20,0,10,0"
+                    Height="50" Width="200" 
+                    x:Name="BorderToggleButton" Background="#CCCCCC">
+
+
+                    <ToggleButton Background="Transparent" Width="200" 
+                          Style="{StaticResource NoMouseOverStyle}"
+                          x:Name="BtnOnOff" 
+                          Click="BtnOnOff_Click">
+
+                        <Grid Width="200" Height="50" 
+                                x:Name="GrdBtnContent" 
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Center">
+
+                            <Border BorderBrush="White" 
+                                    CornerRadius="50" 
+                                    Height="40" Width="40" 
+                                    x:Name="BorderOnOffDot" 
+                                    Background="white" 
+                                    HorizontalAlignment="Left" 
+                                    Margin="5,0"/>
+
+                            <Label Content="offline" 
+                                   Foreground="Black" FontSize="25" 
+                                   x:Name="LblOnOff" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center" 
+                                   FontWeight="Bold"/>
+
+                        </Grid>
+
+
+
+                    </ToggleButton>
+
+
+
+
+
+                </Border>
+                
+                
+                
+                
+            </StackPanel>
+
+            
             
 
         </Grid>

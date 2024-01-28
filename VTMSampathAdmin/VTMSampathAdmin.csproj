@@ -141,6 +141,8 @@
     <Compile Include="Classes\CardDetailsClass.cs" />
     <Compile Include="Classes\ColorsClass.cs" />
     <Compile Include="Classes\BackendDataLoading\IEntityForApplicationButtonHandle.cs" />
+    <Compile Include="Classes\JSONs\FileJSONClass.cs" />
+    <Compile Include="Classes\PurposeEnum.cs" />
     <Compile Include="Classes\UserControlsHandlerClass.cs" />
     <Compile Include="Classes\Utils.cs" />
     <Compile Include="Popups\DateRangePicker.xaml.cs">
@@ -257,6 +259,9 @@
     <Compile Include="UserControlls\SessionInputsUserControl.xaml.cs">
       <DependentUpon>SessionInputsUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlls\SessionInputsUserControl_debitcard.xaml.cs">
+      <DependentUpon>SessionInputsUserControl_debitcard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlls\ShareAccountNoUserControl.xaml.cs">
       <DependentUpon>ShareAccountNoUserControl.xaml</DependentUpon>
     </Compile>
@@ -268,6 +273,9 @@
     </Compile>
     <Compile Include="UserControlls\VerifyMobileUserControl.xaml.cs">
       <DependentUpon>VerifyMobileUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlls\VerifySignatureUserControl.xaml.cs">
+      <DependentUpon>VerifySignatureUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlls\View_DebitCardIssuedApplication.xaml.cs">
       <DependentUpon>View_DebitCardIssuedApplication.xaml</DependentUpon>
@@ -437,6 +445,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlls\SessionInputsUserControl_debitcard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlls\ShareAccountNoUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -450,6 +462,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlls\VerifyMobileUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlls\VerifySignatureUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -579,6 +595,10 @@
     <Resource Include="Images\pen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\rejectedcalls.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\incomingcall.png" />
     <Content Include="x64\pdfium.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

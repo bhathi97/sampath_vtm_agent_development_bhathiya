@@ -404,5 +404,35 @@ namespace VTMSampathAdmin.Classes.BackendDataLoading
             return null;
         }
 
+        public async Task<RejectedApplicationDetailsClass> LoadRejectedApplicationForId(string endpoint)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+
+                    HttpContent content = new StringContent("");
+                    HttpResponseMessage response = await client.PostAsync(endpoint, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonContent = await response.Content.ReadAsStringAsync();
+
+                        RejectedApplicationDetailsClass apiResponse = JsonConvert.DeserializeObject<RejectedApplicationDetailsClass>(jsonContent);
+
+
+
+                        return apiResponse;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return null;
+                }
+            }
+            return null;
+        }
     }
 }

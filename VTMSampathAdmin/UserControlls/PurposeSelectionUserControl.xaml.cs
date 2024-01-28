@@ -22,6 +22,7 @@ namespace VTMSampathAdmin.UserControlls
     /// </summary>
     public partial class PurposeSelectionUserControl : UserControl
     {
+
         public PurposeSelectionUserControl()
         {
             InitializeComponent();
@@ -32,26 +33,23 @@ namespace VTMSampathAdmin.UserControlls
         {
             if(BtnOtherServicesIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle || BtnDebitCardIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle || BtnAccountOpenIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle)
             {
-                SessionInputsUserControl sessionInputsUserControl = new SessionInputsUserControl();
-                UserControlsHandlerClass.AddUserControl("4", sessionInputsUserControl);
-
-                MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-                CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-                if (callViewBaseUserControl != null)
+                //check Select Application or Debit Card
+                if(Actions.Purpose == PurposeEnum.newApplication)
                 {
-                    callViewBaseUserControl.Dispatcher.Invoke(() =>
-                    {
-                        callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                        callViewBaseUserControl.GrdCallInputsContainer.Children.Add(sessionInputsUserControl);
-                    });
+                    Actions.GoToNewUserController<SessionInputsUserControl>("4");
                 }
+                else if (Actions.Purpose == PurposeEnum.debitCard)
+                {
+                    Actions.GoToNewUserController<SessionInputsUserControl_debitcard>("4");
+                }
+
+               
             } 
         }
 
         private void BtnAccountOpen_Click(object sender, RoutedEventArgs e)
         {
-            Actions.Purpose = Actions.PurposeSelectOptions.a;
+            Actions.Purpose = PurposeEnum.newApplication;
 
             BtnAccountOpenIcon.Icon = FontAwesome.WPF.FontAwesomeIcon.CheckCircle;
             if (BtnOtherServicesIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle)
@@ -67,7 +65,8 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnOtherServices_Click(object sender, RoutedEventArgs e)
         {
-            Actions.Purpose = Actions.PurposeSelectOptions.o;
+            Actions.Purpose = PurposeEnum.other;
+
             BtnOtherServicesIcon.Icon = FontAwesome.WPF.FontAwesomeIcon.CheckCircle;
 
             if (BtnDebitCardIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle)
@@ -82,7 +81,8 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnDebitCard_Click(object sender, RoutedEventArgs e)
         {
-            Actions.Purpose = Actions.PurposeSelectOptions.d;
+            Actions.Purpose = PurposeEnum.debitCard;
+
             BtnDebitCardIcon.Icon = FontAwesome.WPF.FontAwesomeIcon.CheckCircle;
 
             if (BtnOtherServicesIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle)
@@ -101,6 +101,8 @@ namespace VTMSampathAdmin.UserControlls
             {
                 GrdDebitCard.Visibility = Visibility.Collapsed;
             }
+
+            
         }
     }
 }

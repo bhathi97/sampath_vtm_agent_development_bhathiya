@@ -29,19 +29,7 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            IssueDebitCardUserControl issueDebitCardUserControl = (IssueDebitCardUserControl)UserControlsHandlerClass.GetUserControl("46");
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(issueDebitCardUserControl);
-                });
-            }
+            Actions.BackToPreviousUserController<VerifySignatureUserControl>("461");
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

@@ -34,19 +34,7 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            VerifyMobileUserControl verifyMobileUserControl = (VerifyMobileUserControl)UserControlsHandlerClass.GetUserControl("42");
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(verifyMobileUserControl);
-                });
-            }
+            Actions.BackToPreviousUserController<VerifyMobileUserControl>("42");
         }
 
         private void BtnResend_Click(object sender, RoutedEventArgs e)

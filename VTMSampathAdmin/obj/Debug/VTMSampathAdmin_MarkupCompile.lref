@@ -37,10 +37,12 @@ FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\IssueDebitCardUserCont
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\MandateFormControlls_setting.xaml;;
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\NICVerificationUserControl.xaml;;
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\SessionInputsUserControl.xaml;;
+FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\SessionInputsUserControl_debitcard.xaml;;
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\ShareAccountNoUserControl.xaml;;
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\SuccessUserControl1.xaml;;
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\VerifyMobileOTPUserControl.xaml;;
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\VerifyMobileUserControl.xaml;;
+FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\VerifySignatureUserControl.xaml;;
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\View_DebitCardIssuedApplication.xaml;;
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\UserControlls\View_RejectedApplication.xaml;;
 FD:\Sampath\VTMSampathAdmin\VTMSampathAdmin\VTM\LoginWindow.xaml;;

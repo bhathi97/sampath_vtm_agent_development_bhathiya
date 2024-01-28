@@ -9,9 +9,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VTMSampathAdmin.Previews;
 
 namespace VTMSampathAdmin.UserControlls
 {
@@ -27,7 +29,13 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnBrowse_Click(object sender, RoutedEventArgs e)
         {
+            //browse/gdarg and drop <- someway load the file 
+            //then open the preview with that file 
+            MandateForm_setting mandateForm_Setting = new MandateForm_setting();
 
+            Effect = (Effect)Application.Current.Resources["BlurEffect"]; //add blur effect to the background
+            mandateForm_Setting.ShowDialog();
+            Effect = null;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

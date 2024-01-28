@@ -42,18 +42,23 @@ namespace VTMSampathAdmin.Previews
 
         }
 
-        private void BtnCancelSignaturePanel_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnSharesettingPanel_Click(object sender, RoutedEventArgs e)
+        private void BtnShareSetting_Click(object sender, RoutedEventArgs e)
         {
             settingPanel.Visibility = Visibility.Collapsed;
             SignaturePanel.Visibility = Visibility.Visible;
         }
 
-        private void BtnCancelsettingPanel_Click(object sender, RoutedEventArgs e)
+        private void BtnCancelSetting_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnDiscardSetting_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCancelSignature_Click(object sender, RoutedEventArgs e)
         {
 
         }

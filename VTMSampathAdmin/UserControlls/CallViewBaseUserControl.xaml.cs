@@ -80,11 +80,9 @@ namespace VTMSampathAdmin.UserControlls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            NICVerificationUserControl nICVerificationUserControl = new NICVerificationUserControl();
+  
+            Actions.GoToNewUserController<NICVerificationUserControl>("1");
 
-            UserControlsHandlerClass.AddUserControl("1", nICVerificationUserControl);
-            GrdCallInputsContainer.Children.Clear();
-            GrdCallInputsContainer.Children.Add(nICVerificationUserControl);
         }
 
         private void BtnCall_Click(object sender, RoutedEventArgs e)

@@ -5,6 +5,8 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Threading;
 using VTMSampathAdmin.Classes;
 using VTMSampathAdmin.Popups;
 
@@ -15,30 +17,38 @@ namespace VTMSampathAdmin.UserControlls
     /// </summary>
     public partial class DashBoardContentUserControl : UserControl
     {
+
+        private TranslateTransform TranslateTransform;
+        private DispatcherTimer StopDotTimer;
+        private int MarginXOfDot;
+        private int DotSpeed;
+
         public DashBoardContentUserControl()
         {
             InitializeComponent();
+
+            InitializeTranslateTransform();
+
+            InitializeTimer();
+
+            MarginXOfDot = Convert.ToInt32(BorderOnOffDot.Margin.Left);
+            DotSpeed = 8;
+
+
+
             Dispatcher.Invoke(() =>
             {
-                BorderToggleButton.Background = Brushes.DimGray;
-                BtnOnOff.Content = "Offline";
+                BorderToggleButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CCCCCC"));
+                LblOnOff.Content = "Offline"; LblOnOff.Foreground = Brushes.Black;
+
             });
         }
 
         private void BtnOnOff_Click(object sender, RoutedEventArgs e)
         {
+            StopDotTimer.Start();
             Actions.IsOnline = !Actions.IsOnline;
 
-            if (Actions.IsOnline)
-            {
-                BorderToggleButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F78020"));
-                BtnOnOff.Content = "Online";
-            }
-            else
-            {
-                BorderToggleButton.Background = Brushes.DimGray;
-                BtnOnOff.Content = "Offline";
-            }
 
             //testing pourpose only ---------------------------------------------------------------------------------------------------------
             NewCallRequestWindow newCallRequestWindow = new NewCallRequestWindow();
@@ -89,6 +99,61 @@ namespace VTMSampathAdmin.UserControlls
 
             }
 
+        }
+
+
+        //toggle button animation
+        private void InitializeTimer()
+        {
+            StopDotTimer = new DispatcherTimer();
+            StopDotTimer.Interval = TimeSpan.FromMilliseconds(10);
+            StopDotTimer.Tick += Timer_Tick;
+        }
+
+        private void InitializeTranslateTransform()
+        {
+            TranslateTransform = new TranslateTransform();
+            BorderOnOffDot.RenderTransform = TranslateTransform;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+            if (Actions.IsOnline)
+            {
+                TranslateTransform.X += DotSpeed;
+
+                if (TranslateTransform.X + BorderOnOffDot.Width > GrdBtnContent.ActualWidth - (DotSpeed) - MarginXOfDot)
+                {
+                    StopDotTimer.Stop();
+                }
+
+                BorderToggleButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#33CC33"));
+                LblOnOff.Content = "Online";
+                LblOnOff.Foreground = Brushes.White;
+
+            }
+            else
+            {
+
+                TranslateTransform.X -= DotSpeed;
+
+                if (TranslateTransform.X == 0)
+                {
+                    StopDotTimer.Stop();
+                }
+
+                BorderToggleButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CCCCCC"));
+                LblOnOff.Content = "Offline";
+                LblOnOff.Foreground = Brushes.Black;
+            }
+
+
+        }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            StopDotTimer.Tick -= Timer_Tick;
         }
     }
 }

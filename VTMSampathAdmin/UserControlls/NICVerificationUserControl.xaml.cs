@@ -30,23 +30,8 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
-            CustomerStatusUserControl customerStatusUserControl = new CustomerStatusUserControl();
-            UserControlsHandlerClass.AddUserControl("2", customerStatusUserControl);
+            Actions.GoToNewUserController<CustomerStatusUserControl>("2");
 
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(customerStatusUserControl);
-                });
-            }
-
-            
-           
         }
 
         private void BtnShowGuidance_Click(object sender, RoutedEventArgs e)

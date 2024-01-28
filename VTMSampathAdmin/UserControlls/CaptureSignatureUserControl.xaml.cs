@@ -31,19 +31,16 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            SessionInputsUserControl sessionInputsUserControl = (SessionInputsUserControl)UserControlsHandlerClass.GetUserControl("4");
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
+            if(Actions.Purpose == PurposeEnum.newApplication)
             {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(sessionInputsUserControl);
-                });
+                Actions.BackToPreviousUserController<SessionInputsUserControl>("4");
             }
+            else if(Actions.Purpose == PurposeEnum.debitCard)
+            {
+                Actions.BackToPreviousUserController<SessionInputsUserControl_debitcard>("4");
+            }
+
+            
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

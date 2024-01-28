@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace VTMSampathAdmin.Classes.BackendDataLoading
 {
-    internal class RejectedApplicationDetailsClass : ApplicationDetailsPreviewClass
+    public class RejectedApplicationDetailsClass
+    {
+        public int StatusCode { get; set; }
+        public DataR Data { get; set; }
+
+    }
+
+    public class DataR : ApplicationDetailsPreviewClass
     {
         public string RejectReason { get; set; }
     }
+
+
+
 }

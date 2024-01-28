@@ -30,156 +30,54 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnDrpCheck_Click(object sender, RoutedEventArgs e)
         {
-            CheckCircle(BtnDrpCheckIcon, BtnDrpCheck);
-
-            DRPChaeckUserControl dRPChaeckUserControl = new DRPChaeckUserControl();
-            UserControlsHandlerClass.AddUserControl("41", dRPChaeckUserControl);
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(dRPChaeckUserControl);
-                });
-            }
-
+            Actions.CheckCircle(BtnDrpCheckIcon, BtnDrpCheck,this);
+            Actions.GoToNewUserController<DRPChaeckUserControl>("41");
 
         }
 
         private void BtnVerifyMobile_Click(object sender, RoutedEventArgs e)
         {
             
-            CheckCircle(BtnVerifyMobileIcon, BtnVerifyMobile);
-
-            VerifyMobileUserControl verifyMobileUserControl = new VerifyMobileUserControl();
-            UserControlsHandlerClass.AddUserControl("42", verifyMobileUserControl);
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(verifyMobileUserControl);
-                });
-            }
+            Actions.CheckCircle(BtnVerifyMobileIcon, BtnVerifyMobile,this);
+            Actions.GoToNewUserController<VerifyMobileUserControl>("42");
 
         }
 
         private void BtnCaptureCustomer_Click(object sender, RoutedEventArgs e)
         {
-            CheckCircle(BtnCaptureCustomerIcon, BtnCaptureCustomer);
-
-            CaptureCustomerImageUserControl captureCustomerImageUserControl = new CaptureCustomerImageUserControl();
-            UserControlsHandlerClass.AddUserControl("43", captureCustomerImageUserControl);
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(captureCustomerImageUserControl);
-                });
-            }
+            Actions.CheckCircle(BtnCaptureCustomerIcon, BtnCaptureCustomer, this);
+            Actions.GoToNewUserController<CaptureCustomerImageUserControl>("43");
         }
 
         private void BtnAddressProof_Click(object sender, RoutedEventArgs e)
         {
-            CheckCircle(BtnAddressProofIcon, BtnAddressProof);
-
-            CaptureAddressProofUserControl captureAddressProofUserControl = new CaptureAddressProofUserControl();
-            UserControlsHandlerClass.AddUserControl("44", captureAddressProofUserControl);
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(captureAddressProofUserControl);
-                });
-            }
+            Actions.CheckCircle(BtnAddressProofIcon, BtnAddressProof, this);
+            Actions.GoToNewUserController<CaptureAddressProofUserControl>("44");
         }
 
         private void BtnAdditionalDocs_Click(object sender, RoutedEventArgs e)
         {
-            CheckCircle(BtnAdditionalDocsIcon, BtnAdditionalDocs);
+            Actions.CheckCircle(BtnAdditionalDocsIcon, BtnAdditionalDocs, this);
+            Actions.GoToNewUserController<CaptureAdditionalDocsUserControl>("45");
 
-            CaptureAdditionalDocsUserControl captureAdditionalDocsUserControl = new CaptureAdditionalDocsUserControl();
-            UserControlsHandlerClass.AddUserControl("45", captureAdditionalDocsUserControl);
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(captureAdditionalDocsUserControl);
-                });
-            }
         }
 
         private void BtnIssueDC_Click(object sender, RoutedEventArgs e)
         {
-            CheckCircle(BtnIssueDCIcon, BtnIssueDC);
-
-
-            IssueDebitCardUserControl issueDebitCardUserControl = new IssueDebitCardUserControl();
-            UserControlsHandlerClass.AddUserControl("46", issueDebitCardUserControl);
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(issueDebitCardUserControl);
-                });
-            }
-
-
+            Actions.CheckCircle(BtnIssueDCIcon, BtnIssueDC, this);
+            Actions.GoToNewUserController<IssueDebitCardUserControl>("46");
 
         }
 
         private void BtnCaptureSign_Click(object sender, RoutedEventArgs e)
         {
-            CheckCircle(BtnCaptureSignIcon, BtnCaptureSign);
-
-            CaptureSignatureUserControl captureSignatureUserControl = new CaptureSignatureUserControl();
-            UserControlsHandlerClass.AddUserControl("47", captureSignatureUserControl);
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(captureSignatureUserControl);
-                });
-            }
-
+            Actions.CheckCircle(BtnCaptureSignIcon, BtnCaptureSign,this);
+            Actions.GoToNewUserController<CaptureSignatureUserControl>("47");
 
         }
 
 
-        private void CheckCircle(ImageAwesome imageAwesome , Button button)
+        /*private void CheckCircle(ImageAwesome imageAwesome , Button button)
         {
             Dispatcher.Invoke(() =>
             {
@@ -187,7 +85,7 @@ namespace VTMSampathAdmin.UserControlls
                 button.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F78020"));
             });
                 
-        }
+        }*/
 
         private void BtnShowSessionInputs_Click(object sender, RoutedEventArgs e)
         {

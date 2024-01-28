@@ -34,37 +34,21 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            SessionInputsUserControl sessionInputsUserControl = (SessionInputsUserControl)UserControlsHandlerClass.GetUserControl("4");
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
+            if(Actions.Purpose == PurposeEnum.newApplication)
             {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(sessionInputsUserControl);
-                });
+                Actions.BackToPreviousUserController<SessionInputsUserControl>("4");
             }
+            else if(Actions.Purpose == PurposeEnum.debitCard)
+            {
+                Actions.BackToPreviousUserController<SessionInputsUserControl_debitcard>("4");
+            }
+
+            
         }
 
         private void BtnSendOTP_Click(object sender, RoutedEventArgs e)
         {
-            VerifyMobileOTPUserControl verifyMobileOTPUserControl = new VerifyMobileOTPUserControl();
-            UserControlsHandlerClass.AddUserControl("421", verifyMobileOTPUserControl);
-
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
-
-            if (callViewBaseUserControl != null)
-            {
-                callViewBaseUserControl.Dispatcher.Invoke(() =>
-                {
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
-                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(verifyMobileOTPUserControl);
-                });
-            }
+            Actions.GoToNewUserController<VerifyMobileOTPUserControl>("421");
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

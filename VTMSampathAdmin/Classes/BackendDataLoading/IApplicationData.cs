@@ -19,5 +19,7 @@ namespace VTMSampathAdmin.Classes.BackendDataLoading
         Task LoadRejectedApplicationData(string endpoint, FlowDocumentReader tblDataTable, UserControl userControl, DateRangeClass dateRange);
 
         Task<CompleteApplicationDetailsClass> LoadCompletedApplicationForId(string endpoint);
+
+        Task<RejectedApplicationDetailsClass> LoadRejectedApplicationForId(string endpoint);
     }
 }

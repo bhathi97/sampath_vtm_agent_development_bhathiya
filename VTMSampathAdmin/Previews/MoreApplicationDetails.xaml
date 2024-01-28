@@ -74,7 +74,7 @@
                     </StackPanel>
 
                     <!--customer info-->
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="50,0,0,0">
                         <Label Content="Customer Info" Foreground="#F78020" FontWeight="DemiBold" HorizontalAlignment="Left"/>
 
                         <!--status-->
@@ -118,28 +118,28 @@
                     <Line X2="300" Y2="0" Stroke="#757575" StrokeThickness="1" HorizontalAlignment="Center" Margin="10,30"/>
 
                     <!--debit card info-->
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="left" Margin="50,0,0,0">
                         <Label Content="Debit Card Info" Foreground="#F78020" FontWeight="DemiBold" HorizontalAlignment="Left"/>
 
                         <!--issued or not-->
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Debit Card" Foreground="#757575" FontWeight="DemiBold" HorizontalAlignment="Left" Width="105"/>
                             <Label Content=":" Foreground="#757575"/>
-                            <Label x:Name="LblIsIssue" Content="Issued" FontWeight="Bold" />
+                            <Label x:Name="LblIsIssue" Content="" FontWeight="Bold" Foreground="#33CC33" />
                         </StackPanel>
 
                         <!--NIC-->
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Card Number" Foreground="#757575" FontWeight="DemiBold" HorizontalAlignment="Left" Width="105"/>
                             <Label Content=":" Foreground="#757575"/>
-                            <Label x:Name="LblCardNo" Content="021 265 246 25" FontWeight="Bold" />
+                            <Label x:Name="LblCardNo" Content="" FontWeight="Bold" />
                         </StackPanel>
 
                         <!--mobile-->
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" >
                             <Label Content="Issued Date" Foreground="#757575" FontWeight="DemiBold" HorizontalAlignment="Left" Width="105"/>
                             <Label Content=":" Foreground="#757575"/>
-                            <Label x:Name="LblIssuedDate" Content="01-05-2023 1:23 PM" FontWeight="Bold" />
+                            <Label x:Name="LblIssuedDate" Content="" FontWeight="Bold" />
                         </StackPanel>
 
 
@@ -160,7 +160,7 @@
                 </Grid.RowDefinitions>
 
                 <!--downloadable forms-->
-                <Border CornerRadius="10" Background="#F4F3F3" Grid.Row="0">
+                <Border CornerRadius="10" Background="#F4F3F3" Grid.Row="0" x:Name="GrdComplete" Visibility="Collapsed">
                     <StackPanel Orientation="Horizontal">
                         <!--mandate form-->
                         <Border CornerRadius="10" Background="white" Width="200" Margin="10">
@@ -228,7 +228,19 @@
                     </StackPanel>
 
                 </Border>
+                
+                <!--reject notice-->
+                <Border CornerRadius="10" Background="#fff3f3" Grid.Row="0" x:Name="GrdRejected">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Label Content="Reason For Rejection : " VerticalAlignment="Center" Foreground="#FF505A" FontWeight="DemiBold" FontSize="15" Margin="20,0,0,0"/>
 
+                        <Border CornerRadius="10" Background="white" >
+                            <TextBlock x:Name="TbRejectedReason" Text="resason" TextWrapping="Wrap" IsEnabled="false" Foreground="#CCCCCC" FontWeight="DemiBold" FontSize="15" Margin="10"/>
+                        </Border>
+
+                    </StackPanel>
+                </Border>
+                
                 <!--captured images-->
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>

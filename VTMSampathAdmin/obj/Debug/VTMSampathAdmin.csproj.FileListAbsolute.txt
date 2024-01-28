@@ -161,4 +161,7 @@ D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\MandateFormCo
 D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\MandateFormControlls_setting.baml
 D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\Previews\MoreApplicationDetails.g.cs
 D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\Previews\MoreApplicationDetails.baml
-D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\VTMSampathAdmin.csproj.AssemblyReference.cache
+D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\SessionInputsUserControl_debitcard.g.cs
+D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\SessionInputsUserControl_debitcard.baml
+D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\VerifySignatureUserControl.g.cs
+D:\Sampath\VTMSampathAdmin\VTMSampathAdmin\obj\Debug\UserControlls\VerifySignatureUserControl.baml

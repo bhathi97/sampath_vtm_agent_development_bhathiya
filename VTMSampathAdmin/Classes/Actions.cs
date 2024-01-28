@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using FontAwesome.WPF;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,22 +28,17 @@ namespace VTMSampathAdmin.Classes
         public static string IP { get; set; }
         //
 
+
+        //purpose selectiom
+        public static PurposeEnum Purpose { get; set; }
+
+
         public static string AgentName { get; set; }
         public static string AgentBranch { get; set; }
-        public static bool IsOnline { get; set; } =  false;
+        public static bool IsOnline { get; set; } = false;
         public static MainWindow MainWindow { get; set; }
 
         public static bool IsNewCustomer { get; set; } = false;
-
-        //handle the purpose
-        public struct PurposeSelect
-        {
-            public string a; //account open
-            public string d; //debit card
-            public string o; //other services
-        }
-        public static PurposeSelect PurposeSelectOptions = new PurposeSelect();
-        public static string Purpose { get; set; }
 
 
         //Application List Handle
@@ -192,7 +188,7 @@ namespace VTMSampathAdmin.Classes
         }
 
         //all applications
-        public static void ApplicationsHandleButtonClick(EntityForApplicationButtonHandle entity) 
+        public static void ApplicationsHandleButtonClick(EntityForApplicationButtonHandle entity)
         {
 
             MoreApplicationDetails completedApplication = new MoreApplicationDetails(entity);
@@ -203,7 +199,7 @@ namespace VTMSampathAdmin.Classes
 
 
 
-            
+
 
 
         }
@@ -261,13 +257,13 @@ namespace VTMSampathAdmin.Classes
                              select new
                              {
                                  IP = n.Element("IP").Value,
-                                
+
                              }).ToList();
                 foreach (var item in nodes)
                 {
-                    
+
                     IP = item.IP;
-                    
+
                 }
                 return true;
             }
@@ -290,7 +286,70 @@ namespace VTMSampathAdmin.Classes
             return null;
         }
 
-        
+
+        internal static void CheckCircle(ImageAwesome imageAwesome, Button button, UserControl userControl)
+        {
+            userControl.Dispatcher.Invoke(() =>
+            {
+                imageAwesome.Icon = FontAwesomeIcon.CheckCircle;
+                button.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F78020"));
+            });
+
+        }
+
+
+        //control the usercontrol dictionary
+        public static void BackToPreviousUserController<T>(string key) where T : UserControl
+        {
+            try
+            {
+                T previousUC = (T)UserControlsHandlerClass.GetUserControl(key);
+                ShowUserControlInCallViewBaseUserControl(previousUC);
+            }
+            catch(ArgumentNullException ex)
+            {
+                MessageBox.Show("No Stored User Control for " + key, "User Control Not Found Error", MessageBoxButton.OK, MessageBoxImage.Question);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        public static void GoToNewUserController<T>(string key) where T : UserControl, new()
+        {
+            try
+            {
+                T newUC = new T();
+                UserControlsHandlerClass.AddUserControl(key, newUC);
+                ShowUserControlInCallViewBaseUserControl(newUC);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
+            
+
+        }
+
+
+        private static void ShowUserControlInCallViewBaseUserControl(UserControl userControl)
+        {
+            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            CallViewBaseUserControl callViewBaseUserControl = (CallViewBaseUserControl)UserControlsHandlerClass.FindVisualChild(mainWindow, typeof(CallViewBaseUserControl));
+
+            if (callViewBaseUserControl != null)
+            {
+                callViewBaseUserControl.Dispatcher.Invoke(() =>
+                {
+                    callViewBaseUserControl.GrdCallInputsContainer.Children.Clear();
+                    callViewBaseUserControl.GrdCallInputsContainer.Children.Add(userControl);
+                });
+            }
+        }
 
 
     }

@@ -13,20 +13,6 @@ namespace VTMSampathAdmin.Classes
 {
     public static class UserControlsHandlerClass
     {
-        /*public static int CurrentUserControl { get; set; }
-        private static readonly ObservableCollection<UserControl> _userControls = new ObservableCollection<UserControl>();
-
-        public static event NotifyCollectionChangedEventHandler CollectionChanged
-        {
-            add { _userControls.CollectionChanged += value; }
-            remove { _userControls.CollectionChanged -= value; }
-        }
-        public static void Enqueue(UserControl userControl)
-        {
-            _userControls.Add(userControl);
-        }*/
-
-
         private static Dictionary<string, UserControl> _userControlManager = new Dictionary<string, UserControl>();
 
         public static void AddUserControl(string key, UserControl userControl)

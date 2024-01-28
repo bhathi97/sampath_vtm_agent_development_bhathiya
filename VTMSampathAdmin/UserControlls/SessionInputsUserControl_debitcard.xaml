@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="VTMSampathAdmin.UserControlls.SessionInputsUserControl_debitcard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VTMSampathAdmin.UserControlls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White"
+             xmlns:fa="http://schemas.fontawesome.io/icons/">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Session Input Preview-->
+        <Border Grid.Row="0" Background="#F4F3F3" Margin="10" CornerRadius="20">
+            <Grid x:Name="GrdPreview" >
+                <Label Content="Session Inputs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10" FontSize="20" FontWeight="DemiBold" Foreground="#757575"/>
+                <Border Width="40" Height="40" CornerRadius="50" Background="#F78020" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,10">
+                    <Grid>
+                        <Button x:Name="BtnShowSessionInputs" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnShowSessionInputs_Click" >
+                            <fa:ImageAwesome Icon="ChevronDown" Foreground="White" Margin="10" x:Name="IconInputVisibilityHandler" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Button>
+                    </Grid>
+
+                </Border>
+            </Grid>
+        </Border>
+
+        <!--Session Input Button List-->
+        <Grid x:Name="GrdButtonList" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width=".5*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Border CornerRadius="20" Background="White" Grid.Column="0" Grid.Row="0"
+                    Margin="20,20,10,10" 
+                    BorderThickness="2" BorderBrush="#F78020">
+                <Grid>
+                    <fa:ImageAwesome Icon="None" x:Name="BtnVerifySignIcon" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#F78020" Margin="5"/>
+
+                    <Button x:Name="BtnVerifySign" Foreground="#757575" FontSize="20" FontWeight="DemiBold" Style="{StaticResource NoMouseOverStyleButton1}"
+                            Click="BtnVerifySign_Click">
+                        <TextBlock Text="Verify Signature" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <Border CornerRadius="20" Background="White" Grid.Column="1" Grid.Row="0"
+                    Margin="10,20,20,10" 
+                    BorderThickness="2" BorderBrush="#F78020">
+                <Grid>
+                    <fa:ImageAwesome Icon="None" x:Name="BtnVerifyMobileNumberIcon" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#F78020" Margin="5"/>
+
+                    <Button x:Name="BtnVerifyMobileNumber" Foreground="#757575" FontSize="20" FontWeight="DemiBold" Style="{StaticResource NoMouseOverStyleButton1}"
+                            Click="BtnVerifyMobileNumber_Click">
+                        <TextBlock Text="Verify Mobile Number" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <Border CornerRadius="20" Background="White" Grid.Column="0" Grid.Row="1"
+                    Margin="20,10,10,20" 
+                    BorderThickness="2" BorderBrush="#F78020">
+                <Grid>
+                    <fa:ImageAwesome Icon="None" x:Name="BtnIssueDebitCardIcon" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#F78020" Margin="5"/>
+
+                    <Button x:Name="BtnIssueDebitCard" Foreground="#757575" FontSize="20" FontWeight="DemiBold" Style="{StaticResource NoMouseOverStyleButton1}"
+                            Click="BtnIssueDebitCard_Click">
+                        <TextBlock Text="Issue Debit Card" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <Border CornerRadius="20" Background="White" Grid.Column="1" Grid.Row="1"
+                    Margin="10,10,20,20" 
+                    BorderThickness="2" BorderBrush="#F78020">
+                <Grid>
+                    <fa:ImageAwesome Icon="None" x:Name="BtnCaptureSignIcon" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#F78020" Margin="5"/>
+
+                    <Button x:Name="BtnCaptureSign" Foreground="#757575" FontSize="20" FontWeight="DemiBold" Style="{StaticResource NoMouseOverStyleButton1}"
+                            Click="BtnCaptureSign_Click">
+                        <TextBlock Text="Capture Signature" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+
+
+
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>

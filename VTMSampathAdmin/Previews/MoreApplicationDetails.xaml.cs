@@ -72,19 +72,46 @@ namespace VTMSampathAdmin.Previews
                     RateToStars(customerRate);
 
                     LblNic.Content = data.Data.NicNumber;
+                    LblCustNic.Content = data.Data.NicNumber;
                     LblAccount.Content = data.Data.AccountNumber;
                     LblMobile.Content = data.Data.MobileNumber;
 
+                    LblStatus.Content = data.Data.CustomerStatus ? "New Customer" : "Existing Customer";
 
+                    LblIsIssue.Content = data.Data.DebitCardStatus ? "Issued" : "";
 
+                    //have to implement
+
+                    //download file grid -> visible
+                    GrdComplete.Visibility = Visibility.Visible;
+                    GrdRejected.Visibility = Visibility.Collapsed;
 
                 }
+                else if(Entity.ApplicationStatus == "rejected")
+                {
+                    string url = Actions.IP + @"Application/view-rejected-applications/" + Entity.Id;
+                    ApplicationData applicationData = new ApplicationData();
+                    RejectedApplicationDetailsClass data = await applicationData.LoadRejectedApplicationForId(url);
+
+                    //customer Rating Show
+                    int customerRate = int.TryParse(data.Data.CustomerRate, out var rate) ? rate : 0;
+                    RateToStars(customerRate);
+
+                    LblNic.Content = data.Data.NicNumber;
+                    LblCustNic.Content = data.Data.NicNumber;
+                    LblAccount.Content = data.Data.AccountNumber;
+                    LblMobile.Content = data.Data.MobileNumber;
+                    LblStatus.Content = data.Data.CustomerStatus ? "New Customer" : "Existing Customer";
+                    TbRejectedReason.Text = data.Data.RejectReason;
 
 
+                    //have to implement
 
 
-
-
+                    GrdComplete.Visibility = Visibility.Collapsed;
+                    GrdRejected.Visibility = Visibility.Visible;
+                   
+                }
 
 
 
