@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VTMSampathAdmin.Classes;
+using VTMSampathAdmin.Classes.JsonDataToBackend;
 using VTMSampathAdmin.VTM;
 
 namespace VTMSampathAdmin.UserControlls
@@ -53,6 +54,10 @@ namespace VTMSampathAdmin.UserControlls
         {
             if(BtnNewCustomerIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle || BtnExistingCustomerIcon.Icon == FontAwesome.WPF.FontAwesomeIcon.CheckCircle)
             {
+              
+                ApplicationTableRecord.ApplicationInstance.CustomerStatus = Actions.IsNewCustomer ? true : false;
+
+
                 Actions.GoToNewUserController<PurposeSelectionUserControl>("3");
             }
             else

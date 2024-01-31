@@ -22,7 +22,7 @@
         <Label Grid.Row="0" Content="Verify Mobile Number" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
 
         <!--subtopic-->
-        <Label Content="Please enter mobile number below, and we will send an OTP code." FontSize="15" HorizontalAlignment="Center" FontWeight="DemiBold" Grid.Row="1"/>
+        <Label Content="LblMassege" FontSize="15" HorizontalAlignment="Center" FontWeight="DemiBold" Grid.Row="1" x:Name="LblMessage"/>
 
         <!--button panel-->
         <Grid Grid.Row="3">

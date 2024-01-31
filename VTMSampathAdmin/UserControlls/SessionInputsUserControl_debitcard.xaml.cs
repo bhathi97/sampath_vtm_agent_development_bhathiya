@@ -36,7 +36,7 @@ namespace VTMSampathAdmin.UserControlls
         {
             try
             {
-                Actions.CheckCircle(BtnVerifySignIcon, BtnVerifySign, this);
+                //Actions.CheckCircle(BtnVerifySignIcon, BtnVerifySign, this);
                 Actions.GoToNewUserController<VerifySignatureUserControl>("41");
 
             }
@@ -52,7 +52,7 @@ namespace VTMSampathAdmin.UserControlls
 
             try
             {
-                Actions.CheckCircle(BtnVerifyMobileNumberIcon, BtnVerifyMobileNumber, this);
+                //Actions.CheckCircle(BtnVerifyMobileNumberIcon, BtnVerifyMobileNumber, this);
                 Actions.GoToNewUserController<VerifyMobileUserControl>("42");
 
             }
@@ -67,7 +67,7 @@ namespace VTMSampathAdmin.UserControlls
         {
             try
             {
-                Actions.CheckCircle(BtnIssueDebitCardIcon, BtnIssueDebitCard, this);
+                //Actions.CheckCircle(BtnIssueDebitCardIcon, BtnIssueDebitCard, this);
                 Actions.GoToNewUserController<IssueDebitCardUserControl>("46");
             }
             catch (Exception ex)
@@ -79,7 +79,7 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnCaptureSign_Click(object sender, RoutedEventArgs e)
         {
-            Actions.CheckCircle(BtnCaptureSignIcon, BtnCaptureSign, this);
+            //Actions.CheckCircle(BtnCaptureSignIcon, BtnCaptureSign, this);
             Actions.GoToNewUserController<CaptureSignatureUserControl>("47");
         }
     }

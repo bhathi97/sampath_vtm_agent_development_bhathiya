@@ -58,7 +58,7 @@
                     <Button x:Name="BtnBack"
                             Foreground="#F78020" FontSize="25" 
                             FontWeight="DemiBold" Style="{StaticResource NoMouseOverStyleButton1}" 
-                            Click="BtnBack_Click">
+                            Click="BtnBack_Click" Height="46" VerticalAlignment="Bottom">
 
                         <fa:ImageAwesome Icon="ArrowLeft"  Width="50" Foreground="#F78020" Margin="10"/>
                     </Button>

@@ -18,7 +18,7 @@ namespace VTMSampathAdmin.VTM
         {
             InitializeComponent();
             Actions.AgentName = null;
-            Actions.AgentBranch = null;
+            //Actions.AgentBranch = null;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -55,7 +55,7 @@ namespace VTMSampathAdmin.VTM
                 Hide();
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.ShowDialog();
-                Show();
+                Close();
             }
 
 

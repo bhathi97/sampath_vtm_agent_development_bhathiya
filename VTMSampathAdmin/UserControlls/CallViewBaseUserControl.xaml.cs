@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VTMSampathAdmin.Classes;
+using VTMSampathAdmin.Classes.JsonDataToBackend;
 
 namespace VTMSampathAdmin.UserControlls
 {
@@ -97,7 +98,16 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnReject_Click(object sender, RoutedEventArgs e)
         {
+            //only for testing
+            //laod twith sample data
+            string jsonDataForNewApplication = ApplicationTableRecord.ApplicationInstance.ToJsonString();
 
+
+
+            string url = Actions.IP + @"Application/create-new-application";
+
+            CreateNewRecord newRecord = new CreateNewRecord();
+            _ = newRecord.CreateNewApplicationRecord(url, jsonDataForNewApplication);
         }
     }
 

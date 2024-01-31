@@ -52,7 +52,7 @@
             </Border>
             
             <!--branch-->
-            <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <!--StackPanel Orientation="Horizontal" Grid.Row="0">
                 <Label Content="Branch" HorizontalAlignment="Left" FontSize="15" FontWeight="DemiBold"/>
                 <Label Content="*" HorizontalAlignment="Left" FontSize="15" Foreground="#fe515a"/>
             </StackPanel>
@@ -64,7 +64,7 @@
                 </ComboBox>
                 
                 
-            </Border>
+            </Border-->
             
             
             

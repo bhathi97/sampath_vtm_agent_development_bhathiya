@@ -47,7 +47,7 @@
 
             </Border>
 
-            <Border CornerRadius="30" Background="#F78020" Height="50" Width="300" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Border CornerRadius="30" Background="#F78020" Height="50" Width="300" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Collapsed">
                 <Grid>
                     <Button x:Name="BtnSave"  Foreground="White"  FontSize="15" FontWeight="DemiBold" 
                             Content="Save" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnSave_Click"/>
@@ -59,11 +59,11 @@
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Vertical">
             <Label Content="Mobile Number" FontSize="15" HorizontalAlignment="Left" FontWeight="Bold"/>
             <Border BorderBrush="Black" BorderThickness="1" Height="40"  CornerRadius="10" Margin="5,0">
-                <TextBox x:Name="TbNicInput"  FontSize="25" FontWeight="Bold" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" Margin="10,0" VerticalAlignment="Center" PreviewTextInput="TbNicInput_PreviewTextInput"/>
+                <TextBox x:Name="TbMobileInput"  FontSize="25" FontWeight="Bold" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" Margin="10,0" VerticalAlignment="Center" PreviewTextInput="TbMobileInput_PreviewTextInput" MaxLength="10" TextChanged="TbMobileInput_TextChanged"/>
             </Border>
             <Border CornerRadius="30" Margin="0,20" Background="#F78020" Height="50" Width="300" HorizontalAlignment="Left">
                 <Grid>
-                    <Button x:Name="BtnSendOTP"  Foreground="White"  FontSize="15" FontWeight="DemiBold" 
+                    <Button x:Name="BtnSendOTP"  Foreground="White"  FontSize="15" FontWeight="DemiBold" IsEnabled="False"
                             Content="Send OTP" Style="{StaticResource NoMouseOverStyleButton1}" Click="BtnSendOTP_Click"/>
                 </Grid>
             </Border>

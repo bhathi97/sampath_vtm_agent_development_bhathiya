@@ -48,17 +48,32 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnSendOTP_Click(object sender, RoutedEventArgs e)
         {
+            BtnSendOTP.IsEnabled = false;
+            Actions.CustomerMobileNumberToVerify = TbMobileInput.Text;
+            TbMobileInput.Text = "";
             Actions.GoToNewUserController<VerifyMobileOTPUserControl>("421");
+
+
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            TbNicInput.Focus();
+            TbMobileInput.Focus();
+            Actions.CustomerMobileNumberToVerify = "";
         }
 
-        private void TbNicInput_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void TbMobileInput_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Actions.NumberValidation(sender, e);
+            
+        }
+
+        private void TbMobileInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(TbMobileInput.Text.Length == 10)
+            {
+                BtnSendOTP.IsEnabled = true;
+            }
         }
     }
 }

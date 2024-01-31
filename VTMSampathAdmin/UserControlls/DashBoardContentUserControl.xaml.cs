@@ -18,6 +18,8 @@ namespace VTMSampathAdmin.UserControlls
     public partial class DashBoardContentUserControl : UserControl
     {
 
+
+
         private TranslateTransform TranslateTransform;
         private DispatcherTimer StopDotTimer;
         private int MarginXOfDot;
@@ -27,12 +29,14 @@ namespace VTMSampathAdmin.UserControlls
         {
             InitializeComponent();
 
-            InitializeTranslateTransform();
-
-            InitializeTimer();
 
             MarginXOfDot = Convert.ToInt32(BorderOnOffDot.Margin.Left);
             DotSpeed = 8;
+
+            InitializeTranslateTransform();
+           //InitializeTimer();
+
+
 
 
 
@@ -46,8 +50,12 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnOnOff_Click(object sender, RoutedEventArgs e)
         {
+            InitializeTimer();
+
             StopDotTimer.Start();
             Actions.IsOnline = !Actions.IsOnline;
+
+
 
 
             //testing pourpose only ---------------------------------------------------------------------------------------------------------
@@ -123,9 +131,10 @@ namespace VTMSampathAdmin.UserControlls
             {
                 TranslateTransform.X += DotSpeed;
 
-                if (TranslateTransform.X + BorderOnOffDot.Width > GrdBtnContent.ActualWidth - (DotSpeed) - MarginXOfDot)
+                if (TranslateTransform.X + BorderOnOffDot.Width > GrdBtnContent.ActualWidth - DotSpeed - MarginXOfDot)
                 {
                     StopDotTimer.Stop();
+                    StopDotTimer.Tick -= Timer_Tick;
                 }
 
                 BorderToggleButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#33CC33"));
@@ -141,6 +150,7 @@ namespace VTMSampathAdmin.UserControlls
                 if (TranslateTransform.X == 0)
                 {
                     StopDotTimer.Stop();
+                    StopDotTimer.Tick -= Timer_Tick;
                 }
 
                 BorderToggleButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CCCCCC"));
@@ -153,7 +163,12 @@ namespace VTMSampathAdmin.UserControlls
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            StopDotTimer.Tick -= Timer_Tick;
+           
+        }
+
+        private void BtnOnOff_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

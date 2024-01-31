@@ -276,7 +276,7 @@
                                     <StackPanel Orientation="Vertical" Grid.Column="0">
                                         <Label Content="NIC Front Side Image" HorizontalAlignment="Left" FontWeight="DemiBold" Foreground="#CCCCCC" FontSize="10"/>
 
-                                        <Image x:Name="ImgNicFront" Stretch="None" Source="C://Users//payme//Downloads//NICF.png" Margin="3" />
+                                        <Image x:Name="ImgNicFront" Stretch="None"  Margin="3" />
 
                                     </StackPanel>
 
@@ -284,7 +284,7 @@
                                     <StackPanel Orientation="Vertical" Grid.Column="1">
                                         <Label Content="NIC Rear Side Image" HorizontalAlignment="Left" FontWeight="DemiBold" Foreground="#CCCCCC" FontSize="10"/>
 
-                                        <Image x:Name="ImgNicBack" Stretch="None" Source="C://Users//payme//Downloads//NICR.png" Margin="3" />
+                                        <Image x:Name="ImgNicBack" Stretch="None"  Margin="3" />
 
                                     </StackPanel>
                                 </Grid>

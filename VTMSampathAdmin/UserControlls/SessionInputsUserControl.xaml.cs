@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VTMSampathAdmin.Classes;
+using VTMSampathAdmin.Classes.JsonDataToBackend;
 using VTMSampathAdmin.VTM;
 
 namespace VTMSampathAdmin.UserControlls
@@ -30,7 +31,7 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnDrpCheck_Click(object sender, RoutedEventArgs e)
         {
-            Actions.CheckCircle(BtnDrpCheckIcon, BtnDrpCheck,this);
+            
             Actions.GoToNewUserController<DRPChaeckUserControl>("41");
 
         }
@@ -38,40 +39,40 @@ namespace VTMSampathAdmin.UserControlls
         private void BtnVerifyMobile_Click(object sender, RoutedEventArgs e)
         {
             
-            Actions.CheckCircle(BtnVerifyMobileIcon, BtnVerifyMobile,this);
+            //Actions.CheckCircle(BtnVerifyMobileIcon, BtnVerifyMobile,this);
             Actions.GoToNewUserController<VerifyMobileUserControl>("42");
 
         }
 
         private void BtnCaptureCustomer_Click(object sender, RoutedEventArgs e)
         {
-            Actions.CheckCircle(BtnCaptureCustomerIcon, BtnCaptureCustomer, this);
+            //Actions.CheckCircle(BtnCaptureCustomerIcon, BtnCaptureCustomer, this);
             Actions.GoToNewUserController<CaptureCustomerImageUserControl>("43");
         }
 
         private void BtnAddressProof_Click(object sender, RoutedEventArgs e)
         {
-            Actions.CheckCircle(BtnAddressProofIcon, BtnAddressProof, this);
+            //Actions.CheckCircle(BtnAddressProofIcon, BtnAddressProof, this);
             Actions.GoToNewUserController<CaptureAddressProofUserControl>("44");
         }
 
         private void BtnAdditionalDocs_Click(object sender, RoutedEventArgs e)
         {
-            Actions.CheckCircle(BtnAdditionalDocsIcon, BtnAdditionalDocs, this);
+            //Actions.CheckCircle(BtnAdditionalDocsIcon, BtnAdditionalDocs, this);
             Actions.GoToNewUserController<CaptureAdditionalDocsUserControl>("45");
 
         }
 
         private void BtnIssueDC_Click(object sender, RoutedEventArgs e)
         {
-            Actions.CheckCircle(BtnIssueDCIcon, BtnIssueDC, this);
+            //Actions.CheckCircle(BtnIssueDCIcon, BtnIssueDC, this);
             Actions.GoToNewUserController<IssueDebitCardUserControl>("46");
 
         }
 
         private void BtnCaptureSign_Click(object sender, RoutedEventArgs e)
         {
-            Actions.CheckCircle(BtnCaptureSignIcon, BtnCaptureSign,this);
+            //Actions.CheckCircle(BtnCaptureSignIcon, BtnCaptureSign,this);
             Actions.GoToNewUserController<CaptureSignatureUserControl>("47");
 
         }

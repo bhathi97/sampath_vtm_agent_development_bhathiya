@@ -13,6 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Xml.Linq;
 using VTMSampathAdmin.Classes.BackendDataLoading;
 using VTMSampathAdmin.Previews;
@@ -29,6 +30,10 @@ namespace VTMSampathAdmin.Classes
         //
 
 
+
+        //dashboard user controls
+        public static DashBoardContentUserControl DashBoardContentUserControl { get; set; }
+
         //purpose selectiom
         public static PurposeEnum Purpose { get; set; }
 
@@ -38,7 +43,9 @@ namespace VTMSampathAdmin.Classes
         public static bool IsOnline { get; set; } = false;
         public static MainWindow MainWindow { get; set; }
 
+        //userdata capturing - session inputs
         public static bool IsNewCustomer { get; set; } = false;
+        public static string CustomerMobileNumberToVerify { get; set; } = "";
 
 
         //Application List Handle
@@ -287,7 +294,7 @@ namespace VTMSampathAdmin.Classes
         }
 
 
-        internal static void CheckCircle(ImageAwesome imageAwesome, Button button, UserControl userControl)
+      /*  internal static void CheckCircle(ImageAwesome imageAwesome, Button button, UserControl userControl)
         {
             userControl.Dispatcher.Invoke(() =>
             {
@@ -295,6 +302,14 @@ namespace VTMSampathAdmin.Classes
                 button.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F78020"));
             });
 
+        }*/
+
+        internal static void CheckCircle(ImageAwesome imageAwesome)
+        {
+           
+                imageAwesome.Icon = FontAwesomeIcon.CheckCircle;
+                //button.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F78020"));
+           
         }
 
 
@@ -350,6 +365,64 @@ namespace VTMSampathAdmin.Classes
                 });
             }
         }
+
+
+
+        //handle BASE64
+        public static string ConvertImageToBase64(string imagePath)
+        {
+            byte[] imageArray = File.ReadAllBytes(imagePath);
+            return Convert.ToBase64String(imageArray);
+        }
+
+        public static void AccessAndChangeCheckCircleOfUserControl<T>(string key, string name) where T : UserControl
+        {
+            try
+            {
+                T userControl = (T)UserControlsHandlerClass.GetUserControl(key);
+                if(userControl != null)
+                {
+                    ImageAwesome checknbox = FindChildBtnIcon(userControl, name);
+                    if (checknbox != null)
+                    {
+                        CheckCircle(checknbox);
+                    }
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show("No Stored User Control for " + key, "User Control Not Found Error", MessageBoxButton.OK, MessageBoxImage.Question);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+        private static ImageAwesome FindChildBtnIcon(DependencyObject parent, string childName)
+        {
+            if (parent != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(parent, i);
+
+                    if (child is ImageAwesome imageAwesome && imageAwesome.Name == childName)
+                    {
+                        return imageAwesome;
+                    }
+
+                    ImageAwesome result = FindChildBtnIcon(child, childName);
+                    if (result != null)
+                    {
+                        return result;
+                    }
+                }
+            }
+
+            return null;
+        }
+
 
 
     }

@@ -141,7 +141,11 @@
     <Compile Include="Classes\CardDetailsClass.cs" />
     <Compile Include="Classes\ColorsClass.cs" />
     <Compile Include="Classes\BackendDataLoading\IEntityForApplicationButtonHandle.cs" />
-    <Compile Include="Classes\JSONs\FileJSONClass.cs" />
+    <Compile Include="Classes\ConvertFromBase64.cs" />
+    <Compile Include="Classes\ImageForPayload.cs" />
+    <Compile Include="Classes\JsonDataToBackend\ApplicationTableRecord.cs" />
+    <Compile Include="Classes\JsonDataToBackend\CreateNewRecord.cs" />
+    <Compile Include="Classes\JsonDataToBackend\ICreateNewRecord.cs" />
     <Compile Include="Classes\PurposeEnum.cs" />
     <Compile Include="Classes\UserControlsHandlerClass.cs" />
     <Compile Include="Classes\Utils.cs" />

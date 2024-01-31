@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VTMSampathAdmin.Classes;
+using VTMSampathAdmin.Classes.JsonDataToBackend;
 using VTMSampathAdmin.VTM;
 
 namespace VTMSampathAdmin.UserControlls
@@ -36,10 +37,12 @@ namespace VTMSampathAdmin.UserControlls
                 //check Select Application or Debit Card
                 if(Actions.Purpose == PurposeEnum.newApplication)
                 {
+                    ApplicationTableRecord.ApplicationInstance.CustomerPurpose = PurposeEnum.newApplication.ToString();
                     Actions.GoToNewUserController<SessionInputsUserControl>("4");
                 }
                 else if (Actions.Purpose == PurposeEnum.debitCard)
                 {
+                    ApplicationTableRecord.ApplicationInstance.CustomerPurpose = PurposeEnum.debitCard.ToString();
                     Actions.GoToNewUserController<SessionInputsUserControl_debitcard>("4");
                 }
 

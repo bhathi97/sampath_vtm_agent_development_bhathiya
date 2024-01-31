@@ -44,7 +44,7 @@ namespace VTMSampathAdmin.VTM
                 Dispatcher.Invoke(() =>
                 {
                     LblUserName.Content = Actions.AgentName;
-                    LblUserLocation.Content = Actions.AgentBranch;
+                    //LblUserLocation.Content = Actions.AgentBranch;
                     GrdMain.Children.Add(dashBoardUserControl);
                 });
 
@@ -116,11 +116,16 @@ namespace VTMSampathAdmin.VTM
             {
                 LblUserName.Content = Actions.AgentName;
             }
-            if(Actions.AgentBranch != null)
+            /*if(Actions.AgentBranch != null)
             {
                 LblUserLocation.Content = Actions.AgentBranch;
-            }
+            }*/
             
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //want to close all fields that 
         }
     }
 }

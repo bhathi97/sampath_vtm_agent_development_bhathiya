@@ -42,6 +42,7 @@ namespace VTMSampathAdmin.UserControlls
             //load DashBoardContent user control
             DashBoardContentUserControl dashBoardContentUserControl = new DashBoardContentUserControl();
             dashBoardContentUserControl.LblAgentName.Content = Actions.AgentName;
+            Actions.DashBoardContentUserControl = dashBoardContentUserControl;
             this.Dispatcher.Invoke(() =>
             {
                 GrdDashMain.Children.Add(dashBoardContentUserControl);
@@ -54,12 +55,15 @@ namespace VTMSampathAdmin.UserControlls
 
             ChangeButtonColors(BtnDashboard);
             //load DashBoardContent user control
-            DashBoardContentUserControl dashBoardContentUserControl = new DashBoardContentUserControl();
-            dashBoardContentUserControl.LblAgentName.Content = Actions.AgentName;
-            this.Dispatcher.Invoke(() =>
-            {
-                GrdDashMain.Children.Add(dashBoardContentUserControl);
-            });
+
+            
+                this.Dispatcher.Invoke(() =>
+                {
+                    GrdDashMain.Children.Add(Actions.DashBoardContentUserControl);
+                });
+            
+           
+            
 
         }
 

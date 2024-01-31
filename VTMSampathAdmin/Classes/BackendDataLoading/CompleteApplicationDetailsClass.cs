@@ -24,5 +24,6 @@ namespace VTMSampathAdmin.Classes.BackendDataLoading
         public string SignatureImage { get; set; }
         public string DebitCardImage { get; set; }
         public string VideoCallRecord { get; set; }
+
     }
 }

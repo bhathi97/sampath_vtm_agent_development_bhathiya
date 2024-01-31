@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,10 +76,24 @@ namespace VTMSampathAdmin.Previews
                     LblCustNic.Content = data.Data.NicNumber;
                     LblAccount.Content = data.Data.AccountNumber;
                     LblMobile.Content = data.Data.MobileNumber;
+                    LblDate.Content = data.Data.CreatedAt.ToString();
 
                     LblStatus.Content = data.Data.CustomerStatus ? "New Customer" : "Existing Customer";
 
                     LblIsIssue.Content = data.Data.DebitCardStatus ? "Issued" : "";
+
+
+
+                    ImageSource imageSourceForNicFront = ConvertFromBase64.ConvertBase64ToImage(data.Data.NicFrontImage);
+                    if (imageSourceForNicFront != null)
+                    {
+                        ImgNicFront.Source = imageSourceForNicFront;
+                    }
+                    
+
+
+
+
 
                     //have to implement
 

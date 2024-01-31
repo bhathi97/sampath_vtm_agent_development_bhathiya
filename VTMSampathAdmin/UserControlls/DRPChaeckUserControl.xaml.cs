@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VTMSampathAdmin.Classes;
+using VTMSampathAdmin.Classes.JsonDataToBackend;
 using VTMSampathAdmin.VTM;
 
 namespace VTMSampathAdmin.UserControlls
@@ -28,13 +29,21 @@ namespace VTMSampathAdmin.UserControlls
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
-        { 
+        {
+            ApplicationTableRecord.ApplicationInstance.DrpStatus = false;
             Actions.BackToPreviousUserController<SessionInputsUserControl>("4");
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            ApplicationTableRecord.ApplicationInstance.DrpStatus = true;
+            
+            if (ApplicationTableRecord.ApplicationInstance.DrpStatus)
+            {
+                Actions.AccessAndChangeCheckCircleOfUserControl<SessionInputsUserControl>("4", "BtnDrpCheckIcon");
+            }
 
+            Actions.BackToPreviousUserController<SessionInputsUserControl>("4");
         }
 
         private void BtnRunDrp_Click(object sender, RoutedEventArgs e)

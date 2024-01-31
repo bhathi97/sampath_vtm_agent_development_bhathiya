@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using VTMSampathAdmin.Classes;
+using VTMSampathAdmin.Classes.JsonDataToBackend;
 using VTMSampathAdmin.VTM;
 
 namespace VTMSampathAdmin.Popups
@@ -26,14 +27,14 @@ namespace VTMSampathAdmin.Popups
         {
             InitializeComponent();
 
-            CBBranchList.Items.Add("Select Your Branch");
+            /*CBBranchList.Items.Add("Select Your Branch");
             CBBranchList.SelectedItem = "Select Your Branch";
 
             // load branches from backend 
             //testing
             CBBranchList.Items.Add("Colombo");
             CBBranchList.Items.Add("Kandy");
-            CBBranchList.Items.Add("Gampaha");
+            CBBranchList.Items.Add("Gampaha");*/
 
 
             
@@ -49,15 +50,37 @@ namespace VTMSampathAdmin.Popups
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             //if name not null and select a branch
-            if(TBName != null && (CBBranchList.SelectedItem != "Select Your Branch"))
+            if(TBName != null)
             {
                 Actions.AgentName = TBName.Text;
-                Actions.AgentBranch = CBBranchList.SelectedItem.ToString();
+
+
+
+                //only for testing--------------------------------------------------------
+                Random random = new Random(100);
+                ApplicationTableRecord.ApplicationInstance.AgentId = random.Next();
+                //Actions.AgentBranch = CBBranchList.SelectedItem.ToString();
+
+                //change the name after hello in dashboard
+                int spaceIndex = TBName.Text.IndexOf(' ');
+                string firstName = "";
+                if(spaceIndex != -1)
+                {
+                    firstName = TBName.Text.Substring(0, spaceIndex);
+                }
+                else
+                {
+                    firstName = TBName.Text;
+                }
+
+                Actions.DashBoardContentUserControl.LblAgentName.Content = firstName;
+
+
                 Close();
             }
         }
 
-        private void CBBranchList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*private void CBBranchList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!_isBranchSelected)
             {
@@ -69,7 +92,7 @@ namespace VTMSampathAdmin.Popups
             }
             
            
-        }
+        }*/
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -78,10 +101,10 @@ namespace VTMSampathAdmin.Popups
             {
                 TBName.Text = Actions.AgentName;
             }
-            if (Actions.AgentBranch != null)
+            /*if (Actions.AgentBranch != null)
             {
                 CBBranchList.SelectedItem = Actions.AgentBranch;
-            }
+            }*/
 
             //focus to the name entering text box
             TBName.Focus();
@@ -92,7 +115,7 @@ namespace VTMSampathAdmin.Popups
         {
             if (e.Key == Key.Enter)
             {
-                CBBranchList.Focus();
+                //CBBranchList.Focus();
                 e.Handled = true;
             }
         }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VTMSampathAdmin.Classes;
+using VTMSampathAdmin.Classes.JsonDataToBackend;
 using VTMSampathAdmin.VTM;
 
 namespace VTMSampathAdmin.UserControlls
@@ -29,17 +30,33 @@ namespace VTMSampathAdmin.UserControlls
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            ApplicationTableRecord.ApplicationInstance.MobileNumber = Actions.CustomerMobileNumberToVerify;
 
+
+            if (Actions.Purpose == PurposeEnum.newApplication)
+            {
+                Actions.AccessAndChangeCheckCircleOfUserControl<SessionInputsUserControl>("4", "BtnVerifyMobileIcon");
+                Actions.BackToPreviousUserController<SessionInputsUserControl>("4");
+            }
+            else if (Actions.Purpose == PurposeEnum.debitCard)
+            {
+                Actions.AccessAndChangeCheckCircleOfUserControl<SessionInputsUserControl_debitcard>("4", "BtnVerifyMobileIcon");
+                Actions.BackToPreviousUserController<SessionInputsUserControl_debitcard>("4");
+            }
+            
+
+            
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
+            Actions.CustomerMobileNumberToVerify = "";
             Actions.BackToPreviousUserController<VerifyMobileUserControl>("42");
         }
 
         private void BtnResend_Click(object sender, RoutedEventArgs e)
         {
-
+            //have to implement
         }
 
         #region methods
@@ -77,6 +94,7 @@ namespace VTMSampathAdmin.UserControlls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Tbotp_1.Focus();
+            LblMessage.Content = $"An OTP code will sent to Mobile Number : {Actions.CustomerMobileNumberToVerify}";
         }
 
         private void Tbotp_2_PreviewTextInput(object sender, TextCompositionEventArgs e)
